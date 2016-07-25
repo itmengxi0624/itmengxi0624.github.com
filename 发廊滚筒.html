@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+@keyframes gt{
+	from{ left:0;}
+	to{ left:-113px;}
+}
+	.box{ width:100px; overflow:hidden; margin:100px auto; border:1px solid #000; position:relative; height:300px;}
+	.box div{ width:500px; height:300px; background:-webkit-repeating-linear-gradient(-45deg,red 0px, red 10px,#fff 10px ,#fff 20px,blue 20px,blue 30px,#fff 30px,#fff 40px); position:absolute;left:0;top:0; -webkit-animation:gt 1s linear infinite;}
+</style>
+</head>
+
+<body>
+	<div class="box">
+		<div></div>
+    </div>
+</body>
+</html>
