@@ -3,42 +3,174 @@
 <head>
 <meta charset="utf-8">
 <title>无标题文档</title>
-<style>
-@keyframes scrollbar{
-	from{ top:0;}
-	to{ top:-133px;}
-}
-	.scrollbar{ width:500px; height:30px; border-radius:15px; margin:0 auto; border:1px solid #000; position:relative; overflow:hidden;}
-	.bar{ width:500px; height:300px; background:-webkit-repeating-linear-gradient(-45deg,#0F9 0px,#0F9 10px,#C30 10px,#C30 20px); position:absolute; top:0; left:0;
-	-webkit-animation:scrollbar 1s linear infinite;
-}
-</style>
+<link rel="stylesheet" href="base/base.css">
+<link rel="stylesheet" href="style/style.css">
 <script>
-	window.onload = function(){
-		var aS = document.querySelectorAll('span');
-		var aInp = document.querySelectorAll('input');
-		var str = '-webkit-repeating-linear-gradient(-45deg,#0F9 0px,#0F9 10px,#C30 10px,#C30 20px)';
-		var oBar = document.querySelector('.bar');
-		for(var i = 0;i<aS.length;i++){
-			aInp[i].index = i;
-			aInp[i].onchange = function(){
-				aS[this.index].innerHTML = this.value;
-				oBar.style.background = '-webkit-repeating-linear-gradient(-45deg,'+aInp[0].value+' 0px,'+aInp[0].value+' 10px,'+aInp[1].value+' 10px,'+aInp[1].value+' 20px)';
-			};
+window.onload = function(){
+	var oBody = document.querySelector('body');
+	var oCantainer = document.getElementById('container');
+	//loding_bar
+	var oLodBar = document.getElementById('loding_bar');
+	var oBar = oLodBar.children[0];
+	var oHeader = document.querySelector('header');
+	var oNav = document.querySelector('nav');
+	var timer = null;
+	var upWard = 100;
+	var opa = 1;
+	var navTop = -110;
+	oBar.style.left = '0';
+	timer = setInterval(function(){
+		upWard-=5;
+		navTop+=10;
+		opa-=0.1
+		if(upWard == 20){
+			clearInterval(timer);
+			oBody.className = '';
+		}
+		oNav.style.top = navTop+'px';
+		oHeader.style.height = upWard+'%';
+		oLodBar.style.opacity = opa;
+	},50);
+	
+	//个人简历
+	var oAboutElk = document.getElementById('about_elk');
+	var aAboutElkAll = oAboutElk.children;
+	oAboutElk.onmousemove = function(ev){
+		var oEvent = ev||event;
+		for(var i = 0;i<aAboutElkAll.length;i++){
+			aAboutElkAll[i].style.left = ev.clientX/100*(i+2)+'px';
+			aAboutElkAll[i].style.top = ev.clientY/100*(i+2)+'px';
 		};
 	};
+};
 </script>
 </head>
 
-<body>
-	<div class="box">
-        颜色：<input type="color" value="#00ff99">
-        <input type="color" value="#cc3300">
-        <span>#00ff99</span>
-        <span>#cc3300</span>
-        <div class="scrollbar">
-        	<div class="bar"></div>
+<body class="overflow">
+<div id="container">
+	<header>
+    	<h1>Elk</h1>
+        <nav>
+        	<a href="javascript:;">首页</a>
+           	<span>/</span>
+        	<a href="javascript:;">关于Elk</a>
+           	<span>/</span>
+        	<a href="javascript:;">履历</a>
+           	<span>/</span>
+        	<a href="javascript:;">技能</a>
+           	<span>/</span>
+        	<a href="javascript:;">联系我</a>
+        </nav>
+        <div id="loding_bar">
+            <img src="psd/loading.gif">
         </div>
-    </div>
+    </header>
+    <section id="about_elk">
+    	<h2>关于elk</h2>
+    	<div class="resume">
+        	<div class="introduce">
+                <h3>个人简介</h3>
+                <p>
+                    Elk/1994年6月/狮子座/北京<br />
+                    爱好:旅行、看书、电影、篮球、健身。<br />
+                    梦想:和我爱的人一起，行万里路，在世界的每个角落留下我们的足迹。<br />
+                </p>
+            </div>
+        </div>
+    	<div class="career">
+        	<div class="introduce career_int">
+                <h3>职业历程</h3>
+                <p>
+                	拉扎斯网络科技（上海）有限公司市场部BD经理（2014~2016）<br />
+                    接触并开始学习前端开发（2016~~）
+                </p>
+            </div>
+        </div>
+    	<div class="skill">
+        	<div class="introduce skill_int">
+                <h3>职业技能简述</h3>
+                <p>
+                	熟悉JavaScript、CSS、HTML进行Web标准开发，熟练运用基于面向对象MVC框架进行项目开发。对于HTML5和CSS3可以熟练使用，工作经验较少，但是技术能力成长很快。
+                </p>
+            </div>
+        </div>
+    	<div class="autodyne"></div>
+        <div class="img_print_yellow"></div>
+        <div class="img_skill"></div>
+        <div class="img_prink_far"></div>
+        <div class="img_prink_close"></div>
+    </section>
+    <section class="info">
+    	<div class="record clearfix">
+            <div class="fl title">
+                <img src="psd/personal_resume_cn.png" class="title_img">
+                <img src="psd/personal_resume_en.png" class="title_img_e">
+                <img src="psd/s04_print1.png" class="title_img_bg">
+            </div>
+            <div class="content fr">
+                <h5>
+                    <span class="fr">2016年8月6日</span>
+                    刚刚于智能社北京国贸校区————
+                    <strong>学习结束</strong>
+                </h5>
+                <p>其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br /></p>
+                <h5>
+                    <span class="fr">2016年8月6日</span>
+                    刚刚于智能社北京国贸校区————
+                    <strong>学习结束</strong>
+                </h5>
+                <p>其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br /></p>
+                <h5>
+                    <span class="fr">2016年8月6日</span>
+                    刚刚于智能社北京国贸校区————
+                    <strong>学习结束</strong>
+                </h5>
+                <p class="last_p">其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br /></p>
+            </div>
+        </div>
+    	<div class="vocational_skills clearfix">
+            <div class="fr title">
+                <img src="psd/skills_cn.png" class="title_img">
+                <img src="psd/skills_en.png" class="title_img_e">
+                <img src="psd/s03_print1.png" class="title_img_bg">
+            </div>
+            <div class="content border_r fl">
+                <h5>JavaScript:</h5>
+                <p>熟悉JavaScript原生编程，对面向对象编程有一定了解，可进行高效模块化开发，可保证良好复用和维护性。可熟练使用MVC框架（如:Angular.js）进行复杂单页面应用开发，对编写jQuery组件有一定经验。</p>
+                <h5>HTML(5)&CSS(3):</h5>
+                <p>因为之前有学习接触过SEO,所以对W3C标准有深刻的认识。尤其是语义化标签，已习惯性使用HTML5标签。能熟练运用CSS完成各种类型的网页布局、响应式布局。对使用CSS3提升用户体验有浓厚兴趣，喜欢使用CSS3解决过去js达到的效果，曾经常在实际项目中实践(如:transiton、keyframes等)</p>
+                <h5>HTML(5) API:</h5>
+                <p>能在项目中熟练运用HTML5 API进行渐进增强式开发，对于使用HTML5提升网站性能和用户体验有相对了解。</p>
+                <h5>Node.js:</h5>
+                <p class="last_p">能使用Node.js+MongoDB完成网站后端开发，目前正在利用空闲时间开发一些网站项目。</p>
+            </div>
+        </div>
+    	<div class="contact_me clearfix">
+            <div class="fl title">
+                <img src="psd/contact_me_cn.png" class="title_img">
+                <img src="psd/contact_me_en.png" class="title_img_e">
+                <img src="psd/s02_print1.png" class="title_img_bg">
+            </div>
+            <div class="content fr">
+                <div class="avatar"></div>
+                <ul>
+                	<li>
+                    	<b>Email</b>
+                        :itmengxi@sina.com
+                    </li>
+                	<li>
+                    	<b>QQ</b>
+                        :737148499
+                    </li>
+                	<li>
+                    	<b>个人主页</b>
+                        <a href="https://itmengxi0624.github.io" target="_blank">:itmengxi0624.github.io</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+
 </body>
 </html>
