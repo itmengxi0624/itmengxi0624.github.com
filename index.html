@@ -2,171 +2,767 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>无标题文档</title>
+<title>李建的个人网站</title>
 <link rel="stylesheet" href="base/base.css">
 <link rel="stylesheet" href="style/style.css">
+<link rel="stylesheet" href="css.css">
+<script src="jsBank.js"></script>
+<script src="move8.js"></script>
+<style>
+.demo{ width:240px; margin:8px; height:200px; border:5px solid #2d2823; overflow:hidden; cursor:pointer; position:relative;}
+.demo img{ width:400px;}
+.demo span{ width:100%; height:100%; position:absolute; top:0; left:-240px; background:rgba(204,204,204,0.5) url(psd/e.png) center no-repeat;}
+</style>
 <script>
-window.onload = function(){
-	var oBody = document.querySelector('body');
+window.onload =  function(){
+	
+	var oBody = document.body;
 	var oCantainer = document.getElementById('container');
-	//loding_bar
-	var oLodBar = document.getElementById('loding_bar');
-	var oBar = oLodBar.children[0];
 	var oHeader = document.querySelector('header');
-	var oNav = document.querySelector('nav');
-	var timer = null;
-	var upWard = 100;
-	var opa = 1;
-	var navTop = -110;
-	oBar.style.left = '0';
-	timer = setInterval(function(){
-		upWard-=5;
-		navTop+=10;
-		opa-=0.1
-		if(upWard == 20){
-			clearInterval(timer);
-			oBody.className = '';
+	var oInfo = document.getElementById('info');
+	var oAboutElk = document.getElementById('about_elk');
+	var oProduction = document.getElementById('production');
+	var oSpotPlay = document.getElementById('spot_play');
+	
+	//页面高度
+	window.onresize = function(){
+		document.body.style.height = document.documentElement.clientHeight+'px';
+	}
+	//loding_bar
+	;(function(){
+		var oLodBar = document.getElementById('loding_bar');
+		var timer = null;
+		oHeader.addEventListener('click',function(){
+				oHeader.style.WebkitTransition = '1s all ease';
+				oHeader.style.MozTransition = '1s all ease';
+				oHeader.style.msTransition = '1s all ease';
+				oHeader.style.transition = '1s all ease';
+				oAboutElk.style.transition = '1s all ease';
+				oHeader.style.height = '135px';
+				oAboutElk.style.display = 'block';
+				oAboutElk.style.height = document.documentElement.clientHeight - 135+'px';
+				oAboutElk.style.width = '100%';
+			}
+		,false);
+
+		//开场白
+		var oGreet = document.getElementById('greet');
+		var aOpen = oGreet.children;
+		var i = 0;
+		var timer = null;
+		setTimeout(function(){
+			timer = setInterval(function(){
+				aOpen[i].style.lineHeight =  (document.documentElement.clientHeight - 135)/(aOpen.length+1)+'px';
+				move(aOpen[i],{opacity:1})
+				i++;
+				if(i == aOpen.length){
+					clearInterval(timer);
+					oSpotPlay.style.marginLeft = '630px';
+				}
+			},1000);
+		},1000);
+	})();
+	
+	//数码时钟
+	function time(){ 
+			function toDou(n){
+				return n<10?'0'+n:''+n;
+			}
+			//获取时间
+			var oDate = new Date();
+			var h = oDate.getHours();
+			var min = oDate.getMinutes();
+			var s = oDate.getSeconds();
+			var week = oDate.getDay();
+			var str2 = toDou(h)+'-'+toDou(min)+'-'+toDou(s)+'-'+week;
+			var oTime = document.getElementById('time');
+			var aTime = oTime.getElementsByTagName('img'); 
+			for(var i = 0;i<aTime.length;i++){
+				if(aTime[i].className == 'num'){
+					aTime[i].src = 'images/'+str2.charAt(i)+'.png';
+				}
+			}
 		}
-		oNav.style.top = navTop+'px';
-		oHeader.style.height = upWard+'%';
-		oLodBar.style.opacity = opa;
-	},50);
+		time();
+		setInterval(time,1000);
 	
 	//个人简历
-	var oAboutElk = document.getElementById('about_elk');
-	var aAboutElkAll = oAboutElk.children;
-	oAboutElk.onmousemove = function(ev){
-		var oEvent = ev||event;
-		for(var i = 0;i<aAboutElkAll.length;i++){
-			aAboutElkAll[i].style.left = ev.clientX/100*(i+2)+'px';
-			aAboutElkAll[i].style.top = ev.clientY/100*(i+2)+'px';
-		};
-	};
+	;(function(){
+		var aAboutElkAll = oAboutElk.children;
+		oAboutElk.addEventListener('mousemove',function(ev){
+			var oEvent = ev||event;
+			for(var i = 0;i<aAboutElkAll.length;i++){
+				aAboutElkAll[i].style.left = ev.clientX/100*(i+2)-80+'px';
+				aAboutElkAll[i].style.top = ev.clientY/100*(i+2)+'px';
+				if(i == aAboutElkAll.length-1){
+					aAboutElkAll[i].style.left = 0;
+					aAboutElkAll[i].style.top = 0;
+				}
+			};
+		},false);
+	})();
+	
+	//中间按钮
+	;(function(){
+		var oSpot = document.getElementById('spot');
+		var aSpan = oSpotPlay.children;
+		oSpotPlay.style.WebkitTransition = '1s all ease 1s';
+		oSpotPlay.style.height = '110px';
+		for(var i = 0;i<aSpan.length;i++){
+			aSpan[i].style.WebkitTransition = '1s all ease 2s';
+			aSpan[i].style.opacity = 1;
+		}
+		oSpotPlay.addEventListener('click',function(){
+			oProduction.style.WebkitTransition = '1s all ease 1s';
+			oSpotPlay.style.display = 'none';
+			oSpot.style.WebkitTransition = '1s all ease';
+			oSpot.style.height = document.documentElement.clientHeight - oSpot.offsetTop+'px';
+			oProduction.style.marginTop = '-20px';
+		},false);
+	})();
+	
+	//简历
+	;(function(){
+		var obj = document.getElementById("box");
+		var personalR = document.getElementById("personalR");
+		var Woenr = document.getElementById("woenr");
+		var WoenrUl = Woenr.getElementsByTagName("ul")[0];
+		var aWoenrLi = WoenrUl.getElementsByTagName("li");
+		var reveal = document.getElementById("reveal");
+		var revealLeft = document.getElementById("revealLeft");
+		var revealRight = document.getElementById("revealRight");
+		var revealUl = document.getElementById("reveal_ul");
+		var arevealLi = revealUl.getElementsByTagName("li");
+		var matter = document.getElementById("matter");
+		var shut = document.getElementById("shut");
+		var matterDiv = document.getElementsByTagName("*");
+		var attrDiv = [];
+		var attrShut = [];
+		var attrShutA = [];
+		var attrAmong = [];
+		var personalCWidth = 0;
+		var t = null;
+		var time = null;
+		var i = 0; 
+		var speed = 2;
+		
+		
+		
+		var oBtn=document.getElementById('carte');
+		var oLeft=document.getElementById('mo');
+		var oRight=document.getElementById('qi');
+		var oRight1=document.getElementById('personalC');
+		var personLi = oRight1.getElementsByTagName("li");
+		var sUl=oRight1.getElementsByTagName('ul')[0];
+		
+		
+		sUl.addEventListener('mouseover',function(ev){
+			
+			var Ev=ev||event;
+			doMove(oLeft, -110);
+			doMove(oRight, 350);
+			Ev.cancelBubble=true;
+		},false);
+		
+		sUl.addEventListener('mouseover',function(ev){
+			
+			var Ev=ev||event;
+			doMove(oLeft, -110);
+			doMove(oRight, 350);
+			Ev.cancelBubble=true;
+		},false);
+		oBtn.addEventListener('click',function(ev){
+			oRight1.style.WebkitTransition = '1s all ease';
+			var Ev=ev||event;
+			if(oRight1.style.opacity == 1){
+				oBtn.style.background='url(psd/img1.gif) no-repeat 36px -6px';
+				doMove(oLeft, 0);
+				doMove(oRight, 214);
+				Ev.cancelBubble=true;
+				oRight1.style.opacity = 0;
+			}else{
+				oBtn.style.background='url(psd/img1.gif) no-repeat 36px 7px';
+				doMove(oLeft, -110);
+				doMove(oRight, 350);
+				Ev.cancelBubble=true;
+				oRight1.style.opacity = 1;
+			}
+		},false);
+		
+		
+		function doMove(obj, iTarget){
+			clearInterval(obj.iTime);
+			obj.iTime=setInterval(function(){
+				
+				if(obj.offsetLeft==iTarget){
+					clearInterval(obj.iTime);
+				}
+				else
+				{
+					var iSpeed=(iTarget-obj.offsetLeft)/8;
+					iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+					
+					obj.style.left=obj.offsetLeft+iSpeed+'px';
+				}
+			}, 14);
+			
+		}
+	
+		
+		for (i=0;i<personLi.length;i++){
+			personLi[i].addEventListener('mouseover',zhong,false);
+			personLi[i].addEventListener('mouseout',chu,false);
+		}
+		function zhong(){
+			for (i=0;i<personLi.length;i++){
+				this.style.background='#332d24 url(psd/li3.gif) no-repeat 8px center';
+			}
+		}
+		function chu(){
+			for (i=0;i<personLi.length;i++){
+				this.style.background='#1c1913 url(psd/li.gif) no-repeat 8px center';
+			}
+		}
+		
+		for (i=0;i<arevealLi.length;i++){
+			arevealLi[i].addEventListener('mouseover',over,false);
+			arevealLi[i].addEventListener('mouseout',nai,false);
+		}
+		function over(){
+			for (i=0;i<arevealLi.length;i++){
+				this.style.background='#453d31';
+			}
+		}
+		function nai(){
+			for (i=0;i<arevealLi.length;i++){
+				this.style.background='#3b342a';
+			}
+		}
+		for (i=0;i<aWoenrLi.length;i++){
+			aWoenrLi[i].addEventListener('mouseover',ku,false);
+			aWoenrLi[i].addEventListener('mouseout',out,false);
+		}
+		function ku(){
+			for (i=0;i<aWoenrLi.length;i++){
+				this.style.background='#453d31';
+			}
+		}
+		function out(){
+			for (i=0;i<aWoenrLi.length;i++){
+				this.style.background='#231f19';
+			}
+		}
+		for(i = 0; i < matterDiv.length; i++){
+			if(matterDiv[i].className == "among"){
+				attrAmong.push(matterDiv[i]);
+			}	
+		}
+		for(i = 0; i < matterDiv.length; i++){
+			if(matterDiv[i].className == "shutA"){
+				attrShutA.push(matterDiv[i]);
+			}	
+		}
+		for(i = 0; i < personLi.length; i++){
+			personLi[i].index = i;
+			personLi[i].addEventListener('click',function (){
+				matter.style.display = "block";
+				attrAmong[this.index].style.display = "block";
+				attrAmong[this.index].style.height = 0 + "px";
+				startMove(attrAmong[this.index], {height: 500,marginTop: -250});
+			},false);
+		}
+		for(i = 0; i < attrShutA.length; i++){
+			attrShutA[i].index = i;
+			attrShutA[i].addEventListener('click',function (){
+				var weniw = this.index;
+				startMove(attrAmong[this.index], {height: 0,marginTop: 0},function (){
+						matter.style.display = "none";
+						attrAmong[weniw].style.display = "none";	
+					});
+			},false);
+		}
+		for(i = 0; i < matterDiv.length; i++){
+			if(matterDiv[i].className == "matterCont"){
+				attrDiv.push(matterDiv[i]);
+			}	
+		}
+		for(i = 0; i < matterDiv.length; i++){
+			if(matterDiv[i].className == "shut"){
+				attrShut.push(matterDiv[i]);
+			}	
+		}
+		for(i = 0; i < arevealLi.length; i++){
+			arevealLi[i].index = i;
+			arevealLi[i].addEventListener('click',function (){
+				attrDiv[this.index].style.display = "block";
+				attrDiv[this.index].style.height = 0 + "px";
+				startMove(attrDiv[this.index], {height: 500,marginTop: -250});
+			},false);
+		}
+		for(i = 0; i < attrShut.length; i++){
+			attrShut[i].index = i;
+			attrShut[i].addEventListener('click',function (){
+				var weniw = this.index;
+				startMove(attrDiv[this.index], {height: 0,marginTop: 0},function (){
+						matter.style.display = "none";
+						attrDiv[weniw].style.display = "none";	
+					});
+			},false);
+		}
+		for(i = 0; i < aWoenrLi.length; i++){
+			aWoenrLi[i].index = i;
+			aWoenrLi[i].addEventListener('click',function (){
+				speed = this.index;
+				show(speed);
+			},false);
+		}
+		revealRight.addEventListener('click',function (){
+			speed+=1;
+			if(speed >= aWoenrLi.length){
+				speed = aWoenrLi.length-1;
+			};
+			show(speed);
+		},false);
+		revealLeft.addEventListener('click',function (){
+			speed-=1;
+			if(speed <= 0){
+				speed = 0;
+			};
+			show(speed);
+		},false);
+		function show(speed){
+			for(i = 0; i < aWoenrLi.length; i++){
+				aWoenrLi[i].className = "";
+			}
+			aWoenrLi[speed].className = "active";
+			startMove(WoenrUl, {top: -aWoenrLi[0].offsetHeight * (speed-2)});
+			startMove(revealUl, {top: -arevealLi[0].offsetHeight * speed});
+		}
+	})();
+
+	//翻墙效果
+	;(function(){
+		function through(obj){
+			function a2d(n){
+				return 	n*180/Math.PI;
+			}
+			//判断鼠标从哪个边移入
+			function hoverDir(obj,ev){
+				var x = obj.offsetLeft+obj.offsetWidth/2 - ev.clientX;
+				var y = obj.offsetTop+obj.offsetHeight/2 - ev.clientY;
+				return Math.round((a2d(Math.atan2(y,x))+180)/90)%4;
+			}
+			obj.addEventListener('mouseover',function(ev){
+				var oEvent = ev||event;
+				var oFrom = oEvent.fromElement||oEvent.relatedTarget;
+				if(obj.contains(oFrom)){
+					return;
+				}
+				var dir = hoverDir(obj,oEvent);
+				var oS = obj.children[0];
+				//左边 2 右侧0 上边3  下边1
+				switch(dir){
+					case 0:
+						oS.style.left = '240px';
+						oS.style.top = 0;
+					break;
+					case 1:
+						oS.style.top =  '200px';
+						oS.style.left = 0;
+					break;
+					case 2:
+						oS.style.left = '-240px';
+						oS.style.top = 0;
+					break;
+					case 3:
+						oS.style.top = '-200px';
+						oS.style.left = 0;
+					break;
+				}
+				move(oS,{left:0,top:0});
+			},false);
+			
+			obj.addEventListener('mouseout',function(ev){
+				var oEvent = ev||event;
+				var oTo = oEvent.toElement||oEvent.relatedTarget;
+				if(obj.contains(oTo)){
+					return;
+				}
+				var dir = hoverDir(obj,oEvent);
+				var oS = obj.children[0];
+				//左边 2 右侧0 上边3  下边1
+				switch(dir){
+					case 0:
+						move(oS,{left:240,top:0});
+					break;
+					case 1:
+						move(oS,{left:0,top:200});
+					break;
+					case 2:
+						move(oS,{left:-240,top:0});
+					break;
+					case 3:
+						move(oS,{left:0,top:-200});
+					break;
+				}
+			},false);
+		}
+		var oHc = document.getElementById('hc');
+		var aCent = oHc.children;
+		for(var i = 0;i<aCent.length;i++){
+			var aDemo = aCent[i].children;
+			for(var j = 0;j<aDemo.length;j++){
+				through(aDemo[j]);
+			}
+		}
+	
+	})();
+	
+	//打开css例子
+	;(function(){
+		var oDemo1 = document.getElementById('demo1');
+		var oDemo2 = document.getElementById('demo2');
+		var oDemo3 = document.getElementById('demo3');
+		var oDemo4 = document.getElementById('demo4');
+		var oDemo5 = document.getElementById('demo5');
+		var oDemo6 = document.getElementById('demo6');	
+		oDemo1.addEventListener('click',function(){
+			window.open('css_code/meilishuo/meilishuo.html','_blank');
+		},false);
+		oDemo2.addEventListener('click',function(){
+			window.open('css_code/mi/mi.html','_blank');
+		},false);
+		oDemo3.addEventListener('click',function(){
+			window.open('css_code/youku/youku.html','_blank');
+		},false);
+		oDemo4.addEventListener('click',function(){
+			window.open('css_code/aiqiyi/aiqiyi.html','_blank');
+		},false);
+		oDemo5.addEventListener('click',function(){
+			window.open('css_code/taobao/taobao.html','_blank');
+		},false);
+		oDemo6.addEventListener('click',function(){
+			window.open('css_code/changyou/changyou.html','_blank');
+		},false);
+
+	})();
 };
 </script>
 </head>
 
-<body class="overflow">
+<body>
 <div id="container">
+    <div id="clock" class="date">
+        <div class="time" id="time">
+            <img class="num" src="images/0.png" alt="0" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img src="images/sign.png" alt="sign" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img src="images/sign.png" alt="sign" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img class="num" src="images/0.png" alt="0" />
+        </div>
+    </div>
 	<header>
     	<h1>Elk</h1>
-        <nav>
-        	<a href="javascript:;">首页</a>
-           	<span>/</span>
-        	<a href="javascript:;">关于Elk</a>
-           	<span>/</span>
-        	<a href="javascript:;">履历</a>
-           	<span>/</span>
-        	<a href="javascript:;">技能</a>
-           	<span>/</span>
-        	<a href="javascript:;">联系我</a>
-        </nav>
-        <div id="loding_bar">
-            <img src="psd/loading.gif">
-        </div>
     </header>
+    <div id="spot">
+    	
+        <div id="production">
+            <div id="mo">
+                <div id="title">
+                    <h3>Elk</h3>
+                    <p>
+                        <span>2016</span>
+                        <strong>WEB DEVELOPER</strong>
+                    </p>
+                </div>
+                <div id="personal">
+                    <p id="xj">
+                        <img src="psd/zhaoxiangji.png">
+                    </p>
+                    <div id="carte">
+                        <img src="psd/personalL.gif">
+                    </div>
+                </div>
+            </div>
+            <div id="qi">
+                <div id="personalC">
+                    <img src="psd/u=2270585020,1017659283&fm=21&gp=0.png" class="robot">
+                    <ul>
+                        <li>Who am I</li>
+                        <li>What can I do</li>
+                        <li>experience</li>
+                        <li>contact me</li>
+                    </ul>
+                </div>
+                <div id="personalR">
+                    <h3>//My Works</h3>
+                    <div id="woenr">
+                        <ul>
+                            <li>
+                                <div id="baby">
+                                    <strong>HTML&CSS</strong>
+                                </div>
+                            </li>
+                            <li class="active">
+                                <div id="baby">
+                                    <strong>JavaScript</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <div id="baby">
+                                    <strong>HTML5&CSS3</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <div id="baby">
+                                    <strong>面向对象</strong>
+                                </div>
+                            </li>
+                            <li>
+                                <div id="baby">
+                                    <strong>捕鱼达人</strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="reveal" id="reveal">
+                        <ul id="reveal_ul">
+                            <li>
+                                <div class="tea">
+                                    <h2>HTML&CSS</h2>
+                                    <h5>Info</h5>
+                                </div>
+                                <p></p>
+                            </li>
+                            <li>
+                                <div class="tea">
+                                    <h2>JavaScript</h2>
+                                    <h5>Info</h5>
+                                </div>
+                                <p></p>
+                            </li>
+                            <li>
+                                <div class="tea">
+                                    <h2>HTML5&CSS3</h2>
+                                    <h5>Info</h5>
+                                </div>
+                                <p></p>
+                            </li>
+                            <li>
+                                <div class="tea">
+                                    <h2>我的作品</h2>
+                                    <h5>Info</h5>
+                                </div>
+                                <p></p>
+                            </li>
+                            <li>
+                                <div class="tea">
+                                    <h2>面向对象</h2>
+                                    <h5>Info</h5>
+                                </div>
+                                <p></p>
+                            </li>
+                            <li>
+                                <div class="tea">
+                                    <h2>捕鱼达人</h2>
+                                    <h5>Info</h5>
+                                </div>
+                                <p></p>
+                            </li>
+                        </ul>
+                        <span id="revealLeft"></span>
+                        <span id="revealRight"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="matter">
+            
+        </div>
+        <div id="bxo">
+            <div class="among" id="among">
+                <div class="shutA"></div>
+                  <div>
+                    <h2>//Introduce Myself</h2>
+                    <div class="cent">
+                        <div class="cle">
+                            我叫李建，来自于河北保定，2015年接触IT这个行业，觉得这就是我想干的事。我和大多数程序员一样，简单，率真，聪明，求知欲望强，喜欢研究最新技术，喜欢穿T恤，不喜欢穿正装，不喜欢户外运动。目前从事这个行业将近一年时间，虽然时间不长 但是做过一些不同类似的网站，也正在学习前端技术，希望能成为一名资深的前端开发工程师。
+                        </div>
+                        <div class="cri"><img src="psd/0bc2a30300bbae603912bbc4.gif"/></div>
+                    </div>
+                </div>
+            </div>
+            <div class="among" id="div1">
+                <div class="shutA"></div>
+                 <div>
+                    <h2>//Vocational Skills</h2>
+                    <div class="cent">
+                        <div class="cle1">
+                            1. 熟练使用Photoshop对设计图进行切割和导出。<br />
+                            2. 熟练掌握HTML/CSS前端开发技术，熟悉W3C标准，熟悉页面优化，对表现与数据分离、前台和后台分离、Web语意化等有深刻理解。<br />
+                            3. 对主浏览器的兼容性有一定了解，并有相关问题的解决经验。<br />
+                            4. 熟悉JavaScript原生编程，熟悉相关的设计模式。<br />
+                            5. 了解面向对象机制、设计模式，能运用sea.js模块化MVC、面向对象的方式编程。<br />
+                            6. 熟悉各种前端流行框架，如jQuery/AngularJs，对编写jQuery组件有一定经验。 <br />
+                            7. 熟悉Ajax/jsonp数据交互技术。<br />
+                            8. 熟悉已标准化的HTML5新特性，对于使用HTML5提升网站性能和用户体验有相对了解。<br />
+                            9. 了解PHP/nodejs等后台语言；了解SVN管理工具、Git管理工具；了解Grunt/Gulp等前端自动化工具。<br />
+                            10. 对使用CSS3提升用户体验有浓厚兴趣，喜欢使用CSS3解决过去JavaScript达到的效果，熟悉移动端常用的布局以及开发技巧。<br />
+            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="among" id="div1">
+                <div class="shutA"></div>
+                  <div>
+                    <h2>//Personal Resume</h2>
+                    <div class="cent">
+                        <div class="cle">
+                            2011年9月——2015年7月:<br />&nbsp;&nbsp;北京高级财务管理专修学院<br />
+                            2015年07月——2016年5月:<br />&nbsp;&nbsp;宇泽创新科技有限公司
+                        </div>
+                        <div class="cri"><img src="psd/2.jpg" /></div>
+                    </div>
+                </div>
+            </div>
+            <div class="among" id="div1">
+                <div class="shutA"></div>
+                  <div>
+                    <h2>//Contact Me</h2>
+                    <div class="cent">
+                        <div class="cle">
+                            联系电话：18101357950
+                            QQ:737148499<br />
+                            Email ：itmengxi@sina.com<br />
+                            住址：北京市朝阳区
+            				个人网站：https://itmengxi0624.github.io
+                        </div>
+                        <div class="cri"><img src="psd/wali.jpg" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="matterCont" id="div1">
+            <div class="shut"></div>
+            <div id="hc">
+                <h2>//MY WORKS</h2>
+                <div class="cent clearfix">
+                    <div class="demo fl" id="demo1">
+                    	<span></span>
+                    	<img src="psd/meilishuo.png">
+                    </div>
+                    <div class="demo fl" id="demo2">
+                    	<span></span>
+                    	<img src="psd/mi.png">
+                    </div>
+                    <div class="demo fl" id="demo3">
+                    	<span></span>
+                    	<img src="psd/youku.png">
+                    </div>
+                    <div class="demo fl" id="demo4">
+                    	<span></span>
+                    	<img src="psd/aiqiyi.png">
+                    </div>
+                    <div class="demo fl" id="demo5">
+                    	<span></span>
+                    	<img src="psd/taobao.png">
+                    </div>
+                    <div class="demo fl" id="demo6">
+                    	<span></span>
+                    	<img src="psd/changyou.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="matterCont" id="div1">
+            <div class="shut"></div>
+            <div>
+                <h2>//MY WORKS</h2>
+                <div class="cent clearfix">
+                    <div class="demo fl" id="demo1">
+                    	<span></span>
+                    	<img src="psd/meilishuo.png">
+                    </div>
+                    <div class="demo fl" id="demo2">
+                    	<span></span>
+                    	<img src="psd/mi.png">
+                    </div>
+                    <div class="demo fl" id="demo3">
+                    	<span></span>
+                    	<img src="psd/youku.png">
+                    </div>
+                    <div class="demo fl" id="demo4">
+                    	<span></span>
+                    	<img src="psd/aiqiyi.png">
+                    </div>
+                    <div class="demo fl" id="demo5">
+                    	<span></span>
+                    	<img src="psd/taobao.png">
+                    </div>
+                    <div class="demo fl" id="demo6">
+                    	<span></span>
+                    	<img src="psd/changyou.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="matterCont" id="div1">
+            <div class="shut"></div>
+             <div>
+                <h2>//MY WORKS</h2>
+                <div class="cent">
+                </div>
+            </div>
+        </div>
+        <div class="matterCont" id="div1">
+            <div class="shut"></div>
+               <div>
+                <h2>//MY WORKS</h2>
+                <div class="cent">
+                </div>
+            </div>
+        </div>
+        <div class="matterCont" id="div1">
+            <div class="shut"></div>
+               <div>
+                <h2>//MY WORKS</h2>
+                <div class="cent">
+                </div>
+            </div>
+        </div>
+        <div class="matterCont" id="div1">
+            <div class="shut"></div>
+               <div>
+                <h2>//MY WORKS</h2>
+                <div class="cent">
+                </div>
+            </div>
+        </div>
+    </div>
     <section id="about_elk">
     	<h2>关于elk</h2>
     	<div class="resume">
-        	<div class="introduce">
-                <h3>个人简介</h3>
-                <p>
-                    Elk/1994年6月/狮子座/北京<br />
-                    爱好:旅行、看书、电影、篮球、健身。<br />
-                    梦想:和我爱的人一起，行万里路，在世界的每个角落留下我们的足迹。<br />
-                </p>
-            </div>
         </div>
     	<div class="career">
-        	<div class="introduce career_int">
-                <h3>职业历程</h3>
-                <p>
-                	拉扎斯网络科技（上海）有限公司市场部BD经理（2014~2016）<br />
-                    接触并开始学习前端开发（2016~~）
-                </p>
-            </div>
         </div>
     	<div class="skill">
-        	<div class="introduce skill_int">
-                <h3>职业技能简述</h3>
-                <p>
-                	熟悉JavaScript、CSS、HTML进行Web标准开发，熟练运用基于面向对象MVC框架进行项目开发。对于HTML5和CSS3可以熟练使用，工作经验较少，但是技术能力成长很快。
-                </p>
-            </div>
         </div>
-    	<div class="autodyne"></div>
+    	<div class="autodyne">
+        	<div class="portrait"></div>
+        </div>
         <div class="img_print_yellow"></div>
-        <div class="img_skill"></div>
         <div class="img_prink_far"></div>
         <div class="img_prink_close"></div>
-    </section>
-    <section class="info">
-    	<div class="record clearfix">
-            <div class="fl title">
-                <img src="psd/personal_resume_cn.png" class="title_img">
-                <img src="psd/personal_resume_en.png" class="title_img_e">
-                <img src="psd/s04_print1.png" class="title_img_bg">
-            </div>
-            <div class="content fr">
-                <h5>
-                    <span class="fr">2016年8月6日</span>
-                    刚刚于智能社北京国贸校区————
-                    <strong>学习结束</strong>
-                </h5>
-                <p>其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br /></p>
-                <h5>
-                    <span class="fr">2016年8月6日</span>
-                    刚刚于智能社北京国贸校区————
-                    <strong>学习结束</strong>
-                </h5>
-                <p>其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br /></p>
-                <h5>
-                    <span class="fr">2016年8月6日</span>
-                    刚刚于智能社北京国贸校区————
-                    <strong>学习结束</strong>
-                </h5>
-                <p class="last_p">其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br />其实我也不知道该说些什么，等待下周就业培训之后再编写吧。<br /></p>
-            </div>
-        </div>
-    	<div class="vocational_skills clearfix">
-            <div class="fr title">
-                <img src="psd/skills_cn.png" class="title_img">
-                <img src="psd/skills_en.png" class="title_img_e">
-                <img src="psd/s03_print1.png" class="title_img_bg">
-            </div>
-            <div class="content border_r fl">
-                <h5>JavaScript:</h5>
-                <p>熟悉JavaScript原生编程，对面向对象编程有一定了解，可进行高效模块化开发，可保证良好复用和维护性。可熟练使用MVC框架（如:Angular.js）进行复杂单页面应用开发，对编写jQuery组件有一定经验。</p>
-                <h5>HTML(5)&CSS(3):</h5>
-                <p>因为之前有学习接触过SEO,所以对W3C标准有深刻的认识。尤其是语义化标签，已习惯性使用HTML5标签。能熟练运用CSS完成各种类型的网页布局、响应式布局。对使用CSS3提升用户体验有浓厚兴趣，喜欢使用CSS3解决过去js达到的效果，曾经常在实际项目中实践(如:transiton、keyframes等)</p>
-                <h5>HTML(5) API:</h5>
-                <p>能在项目中熟练运用HTML5 API进行渐进增强式开发，对于使用HTML5提升网站性能和用户体验有相对了解。</p>
-                <h5>Node.js:</h5>
-                <p class="last_p">能使用Node.js+MongoDB完成网站后端开发，目前正在利用空闲时间开发一些网站项目。</p>
-            </div>
-        </div>
-    	<div class="contact_me clearfix">
-            <div class="fl title">
-                <img src="psd/contact_me_cn.png" class="title_img">
-                <img src="psd/contact_me_en.png" class="title_img_e">
-                <img src="psd/s02_print1.png" class="title_img_bg">
-            </div>
-            <div class="content fr">
-                <div class="avatar"></div>
-                <ul>
-                	<li>
-                    	<b>Email</b>
-                        :itmengxi@sina.com
-                    </li>
-                	<li>
-                    	<b>QQ</b>
-                        :737148499
-                    </li>
-                	<li>
-                    	<b>个人主页</b>
-                        <a href="https://itmengxi0624.github.io" target="_blank">:itmengxi0624.github.io</a>
-                    </li>
-                </ul>
+        <div class="greet" id="greet">
+            <p>Hello</p>
+            <div id="spot_play">
+                <span>play</span>
+                <span class="s2">play</span>
             </div>
         </div>
     </section>
