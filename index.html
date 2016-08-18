@@ -5,17 +5,34 @@
 <title>李建的个人网站</title>
 <link rel="stylesheet" href="base/base.css">
 <link rel="stylesheet" href="style/style.css">
-<link rel="stylesheet" href="css.css">
-<script src="jsBank.js"></script>
-<script src="move8.js"></script>
+<link rel="stylesheet" href="style/css.css">
+<script src="js/jsBank.js"></script>
+<script src="js/move8.js"></script>
 <style>
-.demo{ width:240px; margin:8px; height:200px; border:5px solid #2d2823; overflow:hidden; cursor:pointer; position:relative;}
-.demo img{ width:400px;}
-.demo span{ width:100%; height:100%; position:absolute; top:0; left:-240px; background:rgba(204,204,204,0.5) url(psd/e.png) center no-repeat;}
+.slide {width:100%;height:0;display:block;line-height:2em;color:#FFF;overflow:hidden;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;z-index:1000;background:url(psd/s04_bg.png);-webkit-transform:translate3d(0,0,0);
+}
+.slide p{ font-family: "Microsoft YaHei",Microsoft JhengHei, Helvetica, STHeiti STXihei, Arial; font-weight: 400; font-size:16px;}
+.slide h2 {font-size:2em;line-height:1.1em;letter-spacing:3px;margin:0; font-weight: 400;}
+.reason{width:95%;height:100%;margin:5% auto;position:relative;}
+
+.reason_title{text-align:center;height:100px;width:100%;line-height:100px;}
+
+.reason_detail{width:70%;height:90%;position:absolute;top:25%;left:15%;}
+
+.reason_tab_contain{padding-top:2%;height:50%;width:100%;}
+
+
+.reason_tab_list2{display:none;}
+.reason_tab{text-align:center;width:35%;height:50px;margin:0 auto;}
+.reason_tab ul{padding:0;}
+.reason_tab li{float:left;width:49%;height:50px;line-height:50px;border:1px solid #fff  ;margin-left:-1px;}
+#reason_tab_bar1{background-color:#fff;color:#993366;border-radius:25px 0 0 25px;-moz-border-radius:25px 0 0 25px;-webkit-border-radius:25px 0 0 25px;-ms-border-radius:25px 0 0 25px;-o-border-radius:25px 0 0 25px;}
+#reason_tab_bar2{border-radius:0 25px 25px 0;-moz-border-radius:0 25px 25px 0;-webkit-border-radius:0 25px 25px 0;-ms-border-radius:0 25px 25px 0;-o-border-radius:0 25px 25px 0;}
+#workspace{width:100%;height:0;background:url(psd/s03_bg.png); display:none; text-align:center; padding-top:10%; position:relative;}
+#workspace div{ color:#fff; font-size:20px; line-height:50px; height:100px; position:absolute; left:0; bottom:0; width:100%;}
 </style>
 <script>
 window.onload =  function(){
-	
 	var oBody = document.body;
 	var oCantainer = document.getElementById('container');
 	var oHeader = document.querySelector('header');
@@ -23,6 +40,9 @@ window.onload =  function(){
 	var oAboutElk = document.getElementById('about_elk');
 	var oProduction = document.getElementById('production');
 	var oSpotPlay = document.getElementById('spot_play');
+	var oSlide = document.getElementById('slide');
+	var oWorkspace = document.getElementById('workspace');
+	
 	
 	//页面高度
 	window.onresize = function(){
@@ -32,39 +52,44 @@ window.onload =  function(){
 	;(function(){
 		var oLodBar = document.getElementById('loding_bar');
 		var timer = null;
+		oBody.style.overflow = 'hidden';
 		oHeader.addEventListener('click',function(){
 				oHeader.style.WebkitTransition = '1s all ease';
 				oHeader.style.MozTransition = '1s all ease';
 				oHeader.style.msTransition = '1s all ease';
 				oHeader.style.transition = '1s all ease';
-				oAboutElk.style.transition = '1s all ease';
-				oHeader.style.height = '135px';
+				oAboutElk.style.WebkitTransition = '1s all ease';
+				oSlide.style.WebkitTransition = '1s all ease';
+				oHeader.style.height = '20%';
+				oSlide.style.height = '100%';
 				oAboutElk.style.display = 'block';
-				oAboutElk.style.height = document.documentElement.clientHeight - 135+'px';
+				oAboutElk.style.height = '80%';
 				oAboutElk.style.width = '100%';
+				oBody.style.overflow = 'visible';
+				var oGreet = document.getElementById('greet');
+				var aOpen = oGreet.children;
+				var i = 0;
+				var timer = null;
+				setTimeout(function(){
+					timer = setInterval(function(){
+						aOpen[i].style.lineHeight =  (oAboutElk.offsetHeight - oHeader.offsetHeight)/(aOpen.length+1)+'px';
+						move(aOpen[i],{opacity:1})
+						i++;
+						if(i == aOpen.length){
+							clearInterval(timer);
+							oSpotPlay.style.left = '13%';
+						}
+					},300);
+				},1000);
 			}
 		,false);
 
-		//开场白
-		var oGreet = document.getElementById('greet');
-		var aOpen = oGreet.children;
-		var i = 0;
-		var timer = null;
-		setTimeout(function(){
-			timer = setInterval(function(){
-				aOpen[i].style.lineHeight =  (document.documentElement.clientHeight - 135)/(aOpen.length+1)+'px';
-				move(aOpen[i],{opacity:1})
-				i++;
-				if(i == aOpen.length){
-					clearInterval(timer);
-					oSpotPlay.style.marginLeft = '630px';
-				}
-			},1000);
-		},1000);
 	})();
 	
+	
 	//数码时钟
-	function time(){ 
+	;(function(){
+		function time(){ 
 			function toDou(n){
 				return n<10?'0'+n:''+n;
 			}
@@ -85,22 +110,9 @@ window.onload =  function(){
 		}
 		time();
 		setInterval(time,1000);
+			
+	})()
 	
-	//个人简历
-	;(function(){
-		var aAboutElkAll = oAboutElk.children;
-		oAboutElk.addEventListener('mousemove',function(ev){
-			var oEvent = ev||event;
-			for(var i = 0;i<aAboutElkAll.length;i++){
-				aAboutElkAll[i].style.left = ev.clientX/100*(i+2)-80+'px';
-				aAboutElkAll[i].style.top = ev.clientY/100*(i+2)+'px';
-				if(i == aAboutElkAll.length-1){
-					aAboutElkAll[i].style.left = 0;
-					aAboutElkAll[i].style.top = 0;
-				}
-			};
-		},false);
-	})();
 	
 	//中间按钮
 	;(function(){
@@ -118,6 +130,36 @@ window.onload =  function(){
 			oSpot.style.WebkitTransition = '1s all ease';
 			oSpot.style.height = document.documentElement.clientHeight - oSpot.offsetTop+'px';
 			oProduction.style.marginTop = '-20px';
+			oAboutElk.style.height = 0;
+			
+			oWorkspace.style.WebkitTransition = '1s all ease';
+			oWorkspace.style.height = '90%';
+			oWorkspace.style.display = 'block';
+			oSlide.style.height = 0;
+		},false);
+	})();
+	
+	//兴趣
+	;(function(){
+		var oReasonTab1 = document.getElementById('reason_tab_bar1');
+		var oReasonTab2 = document.getElementById('reason_tab_bar2');
+		var oReasonList1 = document.getElementById('reason_tab_list1');
+		var oReasonList2 = document.getElementById('reason_tab_list2');
+		oReasonTab1.addEventListener('click',function(){
+			oReasonTab1.style.background = '#fff';
+			oReasonTab1.style.color = '#936';
+			oReasonList1.style.display = 'block';
+			oReasonTab2.style.background = 'none';
+			oReasonTab2.style.color = '#fff';
+			oReasonList2.style.display = 'none';
+		},false);
+		oReasonTab2.addEventListener('click',function(){
+			oReasonTab2.style.background = '#fff';
+			oReasonTab2.style.color = '#936';
+			oReasonList2.style.display = 'block';
+			oReasonTab1.style.background = 'none';
+			oReasonTab1.style.color = '#fff';
+			oReasonList1.style.display = 'none';
 		},false);
 	})();
 	
@@ -340,83 +382,6 @@ window.onload =  function(){
 		}
 	})();
 
-	//翻墙效果
-	;(function(){
-		function through(obj){
-			function a2d(n){
-				return 	n*180/Math.PI;
-			}
-			//判断鼠标从哪个边移入
-			function hoverDir(obj,ev){
-				var x = obj.offsetLeft+obj.offsetWidth/2 - ev.clientX;
-				var y = obj.offsetTop+obj.offsetHeight/2 - ev.clientY;
-				return Math.round((a2d(Math.atan2(y,x))+180)/90)%4;
-			}
-			obj.addEventListener('mouseover',function(ev){
-				var oEvent = ev||event;
-				var oFrom = oEvent.fromElement||oEvent.relatedTarget;
-				if(obj.contains(oFrom)){
-					return;
-				}
-				var dir = hoverDir(obj,oEvent);
-				var oS = obj.children[0];
-				//左边 2 右侧0 上边3  下边1
-				switch(dir){
-					case 0:
-						oS.style.left = '240px';
-						oS.style.top = 0;
-					break;
-					case 1:
-						oS.style.top =  '200px';
-						oS.style.left = 0;
-					break;
-					case 2:
-						oS.style.left = '-240px';
-						oS.style.top = 0;
-					break;
-					case 3:
-						oS.style.top = '-200px';
-						oS.style.left = 0;
-					break;
-				}
-				move(oS,{left:0,top:0});
-			},false);
-			
-			obj.addEventListener('mouseout',function(ev){
-				var oEvent = ev||event;
-				var oTo = oEvent.toElement||oEvent.relatedTarget;
-				if(obj.contains(oTo)){
-					return;
-				}
-				var dir = hoverDir(obj,oEvent);
-				var oS = obj.children[0];
-				//左边 2 右侧0 上边3  下边1
-				switch(dir){
-					case 0:
-						move(oS,{left:240,top:0});
-					break;
-					case 1:
-						move(oS,{left:0,top:200});
-					break;
-					case 2:
-						move(oS,{left:-240,top:0});
-					break;
-					case 3:
-						move(oS,{left:0,top:-200});
-					break;
-				}
-			},false);
-		}
-		var oHc = document.getElementById('hc');
-		var aCent = oHc.children;
-		for(var i = 0;i<aCent.length;i++){
-			var aDemo = aCent[i].children;
-			for(var j = 0;j<aDemo.length;j++){
-				through(aDemo[j]);
-			}
-		}
-	
-	})();
 	
 	//打开css例子
 	;(function(){
@@ -446,24 +411,78 @@ window.onload =  function(){
 		},false);
 
 	})();
+	
+	//打开js例子
+	;(function(){
+		var oDemo1 = document.getElementById('js-demo1');
+		var oDemo2 = document.getElementById('js-demo2');
+		var oDemo3 = document.getElementById('js-demo3');
+		var oDemo4 = document.getElementById('js-demo4');
+		var oDemo5 = document.getElementById('js-demo5');
+		var oDemo6 = document.getElementById('js-demo6');	
+		oDemo1.addEventListener('click',function(){
+			window.open('js_code/four/APPLE.html','_blank');
+		},false);
+		oDemo2.addEventListener('click',function(){
+			window.open('js_code/slide.html','_blank');
+		},false);
+		oDemo3.addEventListener('click',function(){
+			window.open('js_code/slide/slide.html','_blank');
+		},false);
+		oDemo4.addEventListener('click',function(){
+			window.open('js_code/round.html','_blank');
+		},false);
+		oDemo5.addEventListener('click',function(){
+			window.open('js_code/timg.html','_blank');
+		},false);
+		oDemo6.addEventListener('click',function(){
+			window.open('js_code/separate.html','_blank');
+		},false);
+
+	})();
+	
+	//打开HTML5&CSS3例子
+	;(function(){
+		var oDemo1 = document.getElementById('h5c3-demo1');
+		var oDemo2 = document.getElementById('h5c3-demo2');
+		var oDemo3 = document.getElementById('h5c3-demo3');
+		var oDemo4 = document.getElementById('h5c3-demo4');
+		var oDemo5 = document.getElementById('h5c3-demo5');
+		var oDemo6 = document.getElementById('h5c3-demo6');	
+		oDemo1.addEventListener('click',function(){
+			window.open('h5_code/box.html','_blank');
+		},false);
+		oDemo2.addEventListener('click',function(){
+			window.open('h5_code/boom.html','_blank');
+		},false);
+		oDemo3.addEventListener('click',function(){
+			window.open('h5_code/around.html','_blank');
+		},false);
+		oDemo4.addEventListener('click',function(){
+			window.open('h5_code/books.html','_blank');
+		},false);
+		oDemo5.addEventListener('click',function(){
+			window.open('h5_code/flip.html','_blank');
+		},false);
+		oDemo6.addEventListener('click',function(){
+			window.open('h5_code/projection.html','_blank');
+		},false);
+
+	})();
+	
+	//打开捕鱼达人
+	;(function(){
+		var oCan = document.getElementById('c1');
+		oCan.addEventListener('click',function(){
+			window.open('fish_game/demo.html','_blank');
+		},false);
+	})();
 };
 </script>
 </head>
 
 <body>
 <div id="container">
-    <div id="clock" class="date">
-        <div class="time" id="time">
-            <img class="num" src="images/0.png" alt="0" />
-            <img class="num" src="images/0.png" alt="0" />
-            <img src="images/sign.png" alt="sign" />
-            <img class="num" src="images/0.png" alt="0" />
-            <img class="num" src="images/0.png" alt="0" />
-            <img src="images/sign.png" alt="sign" />
-            <img class="num" src="images/0.png" alt="0" />
-            <img class="num" src="images/0.png" alt="0" />
-        </div>
-    </div>
 	<header>
     	<h1>Elk</h1>
     </header>
@@ -518,11 +537,6 @@ window.onload =  function(){
                             </li>
                             <li>
                                 <div id="baby">
-                                    <strong>面向对象</strong>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="baby">
                                     <strong>捕鱼达人</strong>
                                 </div>
                             </li>
@@ -530,45 +544,31 @@ window.onload =  function(){
                     </div>
                     <div class="reveal" id="reveal">
                         <ul id="reveal_ul">
-                            <li>
+                            <li class="clearfix">
                                 <div class="tea">
                                     <h2>HTML&CSS</h2>
-                                    <h5>Info</h5>
+                                    <h5>+INFO</h5>
                                 </div>
-                                <p></p>
+                                <p><img src="psd/u=2115461906,3713660013&fm=21&gp=0.jpg"></p>
                             </li>
-                            <li>
+                            <li class="clearfix">
                                 <div class="tea">
                                     <h2>JavaScript</h2>
-                                    <h5>Info</h5>
+                                    <h5>+INFO</h5>
                                 </div>
-                                <p></p>
+                                <p><img src="psd/u=1515122647,1659030776&fm=21&gp=0.jpg"></p>
                             </li>
-                            <li>
+                            <li class="clearfix">
                                 <div class="tea">
                                     <h2>HTML5&CSS3</h2>
-                                    <h5>Info</h5>
+                                    <h5>+INFO</h5>
                                 </div>
-                                <p></p>
+                                <p><img src="psd/u=2096616551,1814278659&fm=21&gp=0.jpg"></p>
                             </li>
-                            <li>
-                                <div class="tea">
-                                    <h2>我的作品</h2>
-                                    <h5>Info</h5>
-                                </div>
-                                <p></p>
-                            </li>
-                            <li>
-                                <div class="tea">
-                                    <h2>面向对象</h2>
-                                    <h5>Info</h5>
-                                </div>
-                                <p></p>
-                            </li>
-                            <li>
+                            <li class="clearfix">
                                 <div class="tea">
                                     <h2>捕鱼达人</h2>
-                                    <h5>Info</h5>
+                                    <h5>+INFO</h5>
                                 </div>
                                 <p></p>
                             </li>
@@ -589,13 +589,13 @@ window.onload =  function(){
                     <h2>//Introduce Myself</h2>
                     <div class="cent">
                         <div class="cle">
-                            我叫李建，来自于河北保定，2015年接触IT这个行业，觉得这就是我想干的事。我和大多数程序员一样，简单，率真，聪明，求知欲望强，喜欢研究最新技术，喜欢穿T恤，不喜欢穿正装，不喜欢户外运动。目前从事这个行业将近一年时间，虽然时间不长 但是做过一些不同类似的网站，也正在学习前端技术，希望能成为一名资深的前端开发工程师。
+                            我叫李建，来自河北保定，2015年接触IT这个行业，觉得这就是我想干的事。我和大多数程序员一样，简单，率真，聪明，求知欲望强，喜欢研究最新技术，喜欢穿T恤，不喜欢穿正装，不喜欢户外运动。目前从事这个行业将近一年时间，虽然时间不长 但是做过一些不同类似的网站，也正在学习前端技术，希望能成为一名资深的前端开发工程师。
                         </div>
                         <div class="cri"><img src="psd/0bc2a30300bbae603912bbc4.gif"/></div>
                     </div>
                 </div>
             </div>
-            <div class="among" id="div1">
+            <div class="among">
                 <div class="shutA"></div>
                  <div>
                     <h2>//Vocational Skills</h2>
@@ -617,7 +617,7 @@ window.onload =  function(){
                     </div>
                 </div>
             </div>
-            <div class="among" id="div1">
+            <div class="among">
                 <div class="shutA"></div>
                   <div>
                     <h2>//Personal Resume</h2>
@@ -630,7 +630,7 @@ window.onload =  function(){
                     </div>
                 </div>
             </div>
-            <div class="among" id="div1">
+            <div class="among">
                 <div class="shutA"></div>
                   <div>
                     <h2>//Contact Me</h2>
@@ -647,125 +647,181 @@ window.onload =  function(){
                 </div>
             </div>
         </div>
-        <div class="matterCont" id="div1">
+        <div class="matterCont">
             <div class="shut"></div>
             <div id="hc">
                 <h2>//MY WORKS</h2>
                 <div class="cent clearfix">
                     <div class="demo fl" id="demo1">
-                    	<span></span>
+                    	<span>美丽说</span>
                     	<img src="psd/meilishuo.png">
                     </div>
                     <div class="demo fl" id="demo2">
-                    	<span></span>
+                    	<span>小米</span>
                     	<img src="psd/mi.png">
                     </div>
                     <div class="demo fl" id="demo3">
-                    	<span></span>
+                    	<span>优酷</span>
                     	<img src="psd/youku.png">
                     </div>
                     <div class="demo fl" id="demo4">
-                    	<span></span>
+                    	<span>爱奇艺</span>
                     	<img src="psd/aiqiyi.png">
                     </div>
                     <div class="demo fl" id="demo5">
-                    	<span></span>
+                    	<span>淘宝</span>
                     	<img src="psd/taobao.png">
                     </div>
                     <div class="demo fl" id="demo6">
-                    	<span></span>
+                    	<span>灵魂回响</span>
                     	<img src="psd/changyou.png">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="matterCont" id="div1">
+        <div class="matterCont">
             <div class="shut"></div>
-            <div>
+            <div id="js">
                 <h2>//MY WORKS</h2>
                 <div class="cent clearfix">
-                    <div class="demo fl" id="demo1">
-                    	<span></span>
-                    	<img src="psd/meilishuo.png">
+                    <div class="demo fl" id="js-demo1">
+                    	<span>苹果菜单</span>
+                    	<img src="psd/apple.jpg">
                     </div>
-                    <div class="demo fl" id="demo2">
-                    	<span></span>
-                    	<img src="psd/mi.png">
+                    <div class="demo fl" id="js-demo2">
+                    	<span>网易幻灯片</span>
+                    	<img src="psd/slide.png">
                     </div>
-                    <div class="demo fl" id="demo3">
-                    	<span></span>
-                    	<img src="psd/youku.png">
+                    <div class="demo fl" id="js-demo3">
+                    	<span>淘宝幻灯片</span>
+                    	<img src="psd/tb-slide.png">
                     </div>
-                    <div class="demo fl" id="demo4">
-                    	<span></span>
-                    	<img src="psd/aiqiyi.png">
+                    <div class="demo fl" id="js-demo4">
+                    	<span>圆球环绕</span>
+                    	<img src="psd/around.png">
                     </div>
-                    <div class="demo fl" id="demo5">
-                    	<span></span>
-                    	<img src="psd/taobao.png">
+                    <div class="demo fl" id="js-demo5">
+                    	<span>放大镜效果</span>
+                    	<img src="psd/timg.png">
                     </div>
-                    <div class="demo fl" id="demo6">
-                    	<span></span>
-                    	<img src="psd/changyou.png">
+                    <div class="demo fl" id="js-demo6">
+                    	<span>分页展示</span>
+                    	<img src="psd/separate.png">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="matterCont" id="div1">
+        <div class="matterCont">
             <div class="shut"></div>
              <div>
                 <h2>//MY WORKS</h2>
-                <div class="cent">
+                <div class="cent clearfix">
+                    <div class="demo fl" id="h5c3-demo1">
+                    	<span>3D盒子</span>
+                    	<img src="psd/box.png">
+                    </div>
+                    <div class="demo fl" id="h5c3-demo2">
+                    	<span>图片爆炸</span>
+                    	<img src="psd/boom.png">
+                    </div>
+                    <div class="demo fl" id="h5c3-demo3">
+                    	<span>3D图片环绕</span>
+                    	<img src="psd/around2.png">
+                    </div>
+                    <div class="demo fl" id="h5c3-demo4">
+                    	<span>图片翻书效果</span>
+                    	<img src="psd/books.png">
+                    </div>
+                    <div class="demo fl" id="h5c3-demo5">
+                    	<span>图片颗粒翻转</span>
+                    	<img src="psd/flip.png">
+                    </div>
+                    <div class="demo fl" id="h5c3-demo6">
+                    	<span>文字阴影</span>
+                    	<img src="psd/projection.png">
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="matterCont" id="div1">
+        <div class="matterCont">
             <div class="shut"></div>
                <div>
                 <h2>//MY WORKS</h2>
                 <div class="cent">
-                </div>
-            </div>
-        </div>
-        <div class="matterCont" id="div1">
-            <div class="shut"></div>
-               <div>
-                <h2>//MY WORKS</h2>
-                <div class="cent">
-                </div>
-            </div>
-        </div>
-        <div class="matterCont" id="div1">
-            <div class="shut"></div>
-               <div>
-                <h2>//MY WORKS</h2>
-                <div class="cent">
-                </div>
+					<div id="c1">
+                    	<span>捕鱼达人</span>
+                    	<img src="psd/fish.png">
+                    </div>             
+               	</div>
             </div>
         </div>
     </div>
     <section id="about_elk">
-    	<h2>关于elk</h2>
-    	<div class="resume">
-        </div>
-    	<div class="career">
-        </div>
-    	<div class="skill">
-        </div>
+  		<div id="clock" class="date">
+            <div class="time" id="time">
+                <img class="num" src="images/0.png" alt="0" />
+                <img class="num" src="images/0.png" alt="0" />
+                <img src="images/sign.png" alt="sign" />
+                <img class="num" src="images/0.png" alt="0" />
+                <img class="num" src="images/0.png" alt="0" />
+                <img src="images/sign.png" alt="sign" />
+                <img class="num" src="images/0.png" alt="0" />
+                <img class="num" src="images/0.png" alt="0" />
+            </div>
+   		</div>
     	<div class="autodyne">
         	<div class="portrait"></div>
-        </div>
-        <div class="img_print_yellow"></div>
-        <div class="img_prink_far"></div>
-        <div class="img_prink_close"></div>
-        <div class="greet" id="greet">
-            <p>Hello</p>
-            <div id="spot_play">
-                <span>play</span>
-                <span class="s2">play</span>
+            <div id="spot_play" title="查看个人简历及作品展示">
+                <span>come in</span>
+                <span class="s2">come in</span>
             </div>
+
+        </div>
+        <div class="greet" id="greet">
+                <span>李建</span>
+                <strong>前端工程师</strong>
+                <p>一年前端工作经验</p>
+                <p>精通Photoshop、Html/Html5、Css/Css3</p>
+                <p>熟练使用Javascript/Jquery、Bootstrap、Ajax</p>
         </div>
     </section>
+    
+	<div class="slide" id="slide">
+			<div class="reason">
+				<div class="reason_title">
+					<h2>为什么我要从事Web前端？</h2>
+				</div>
+				
+				<div class="reason_detail">
+
+					<div class="reason_tab_contain">
+						<div class="reason_tab_list1" id="reason_tab_list1">
+						<p>曾经我一直都有一个想法就是做一个自己的网站，大学时因为专业问题，没去深入学习web前端课程。然而毕业工作之后，从接触SEO开始，慢慢增加了对web前端的了解，后续自己下载关于html和css教学视频，同时自学JavaScript知识，并深入了解这个行业。如今才发现，Web前端就是我真正感兴趣的行业，在学习练习的过程，为了达到自己想要的效果，坚持不懈的在网上搜寻资料，甚至有时会熬夜。这也是我发现，自从上班以来从来没为哪一份工作比这付出的多的原因————web才是我的兴趣。</p>
+						</div>
+						<div class="reason_tab_list2" id="reason_tab_list2">
+							<p>为什么会有成就感？其实很简单，知识永无止境。特别对web前端来说，当我自己想实现一个页面效果，而恰恰这个页面效果我不会，于是我会请教身边的web前端大神或者自己上网查询，并通过不同方法去实现，直到页面输出自己想要的效果时候，我会觉得自己心里满满的成就感。同时也会让我觉得自己又学到一个新技能。</p>
+						</div>
+					</div>
+
+					<div class="reason_tab">
+						<ul>
+							<li id="reason_tab_bar1">兴趣</li>
+							<li id="reason_tab_bar2">成就感</li>
+						</ul>
+					</div>
+					
+				</div>
+
+			</div>
+			
+		</div>
+	<div id="workspace">
+    	<img src="psd/workspace.png">
+        <div>
+       		<p>© Design By Elk</p>
+       		<p>联系QQ:737148499    邮箱：itmengxi@sina.com</p>
+        </div>
+    </div>
 </div>
 
 </body>
