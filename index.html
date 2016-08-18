@@ -43,6 +43,14 @@ window.onload =  function(){
 	var oSlide = document.getElementById('slide');
 	var oWorkspace = document.getElementById('workspace');
 	
+	//transition
+	function setC3Style(obj,sName,sValue){
+		obj.style['Webkit'+sName.charAt(0).toUpperCase()+sName.substring(1)] = sValue;
+		obj.style['Moz'+sName.charAt(0).toUpperCase()+sName.substring(1)] = sValue;
+		obj.style['ms'+sName.charAt(0).toUpperCase()+sName.substring(1)] = sValue;
+		obj.style['O'+sName.charAt(0).toUpperCase()+sName.substring(1)] = sValue;
+		obj.style[sName] = sValue;
+	}
 	
 	//页面高度
 	window.onresize = function(){
@@ -54,12 +62,9 @@ window.onload =  function(){
 		var timer = null;
 		oBody.style.overflow = 'hidden';
 		oHeader.addEventListener('click',function(){
-				oHeader.style.WebkitTransition = '1s all ease';
-				oHeader.style.MozTransition = '1s all ease';
-				oHeader.style.msTransition = '1s all ease';
-				oHeader.style.transition = '1s all ease';
-				oAboutElk.style.WebkitTransition = '1s all ease';
-				oSlide.style.WebkitTransition = '1s all ease';
+				setC3Style(oHeader,'transition','1s all ease');
+				setC3Style(oAboutElk,'transition','1s all ease');
+				setC3Style(oSlide,'transition','1s all ease');
 				oHeader.style.height = '20%';
 				oSlide.style.height = '100%';
 				oAboutElk.style.display = 'block';
@@ -118,21 +123,21 @@ window.onload =  function(){
 	;(function(){
 		var oSpot = document.getElementById('spot');
 		var aSpan = oSpotPlay.children;
-		oSpotPlay.style.WebkitTransition = '1s all ease 1s';
+		setC3Style(oSpotPlay,'transition','1s all ease 1s');
 		oSpotPlay.style.height = '110px';
 		for(var i = 0;i<aSpan.length;i++){
-			aSpan[i].style.WebkitTransition = '1s all ease 2s';
+			setC3Style(aSpan[i],'transition','1s all ease 2s');
 			aSpan[i].style.opacity = 1;
 		}
 		oSpotPlay.addEventListener('click',function(){
-			oProduction.style.WebkitTransition = '1s all ease 1s';
+			setC3Style(oProduction,'transition','1s all ease 1s');
 			oSpotPlay.style.display = 'none';
-			oSpot.style.WebkitTransition = '1s all ease';
+			setC3Style(oSpot,'transition','1s all ease');
 			oSpot.style.height = document.documentElement.clientHeight - oSpot.offsetTop+'px';
 			oProduction.style.marginTop = '-20px';
 			oAboutElk.style.height = 0;
 			
-			oWorkspace.style.WebkitTransition = '1s all ease';
+			setC3Style(oWorkspace,'transition','1s all ease');
 			oWorkspace.style.height = '90%';
 			oWorkspace.style.display = 'block';
 			oSlide.style.height = 0;
@@ -214,7 +219,7 @@ window.onload =  function(){
 			Ev.cancelBubble=true;
 		},false);
 		oBtn.addEventListener('click',function(ev){
-			oRight1.style.WebkitTransition = '1s all ease';
+			setC3Style(oRight1,'transition','1s all ease');
 			var Ev=ev||event;
 			if(oRight1.style.opacity == 1){
 				oBtn.style.background='url(psd/img1.gif) no-repeat 36px -6px';
