@@ -1,12 +1,12 @@
 .clear{clear:both;}
 #box { height: 494px;width:776px;  margin:0 auto; position:relative; top:40px;}
-.personalL { width: 442px; height: 392px;  background:#1d1c13 url(psd/banner.jpg) no-repeat 6px 0; position: absolute; border:1px solid #2d2823;}
-#personalL { position: absolute; right: 0; top: 182px; background: url(psd/img1.gif) no-repeat 36px -6px; cursor: pointer; }
+.personalL { width: 442px; height: 392px;  background:#1d1c13 url(../psd/banner.jpg) no-repeat 6px 0; position: absolute; border:1px solid #2d2823;}
+#personalL { position: absolute; right: 0; top: 182px; background: url(../psd/img1.gif) no-repeat 36px -6px; cursor: pointer; }
 .personalC { width:218px; height:392px;background:#231f19; position: relative;left:0px; margin-top:61px;top:0px;border:1px solid #2d2823;}
 .personalC ul { position: absolute; left: 8px; bottom: 0; cursor:pointer; padding-bottom:6px; }
-.personalC li { height: 34px; line-height: 34px; color:#8f8a77;font-family:Calibri; width:175px; background:#1c1913 url(psd/li.gif) no-repeat 8px center; font-size:12px;margin-top: 6px; float:left; padding-left:28px;}
+.personalC li { height: 34px; line-height: 34px; color:#8f8a77;font-family:Calibri; width:175px; background:#1c1913 url(../psd/li.gif) no-repeat 8px center; font-size:12px;margin-top: 6px; float:left; padding-left:28px;}
 .among { width: 598px; height: 498px; position: absolute; left: 50%; top: 50%; margin: 0 0 0 -300px;  display: none; overflow: hidden;background: #312b23;  border:1px solid #493e2f; z-index:3;}
-.shutA { position: absolute; right: 10px; top: 10px; width:15px; height:15px; background:url(psd/guan.gif) no-repeat; cursor:pointer;}
+.shutA { position: absolute; right: 10px; top: 10px; width:15px; height:15px; background:url(../psd/guan.gif) no-repeat; cursor:pointer;}
 .personalR {width:308px;height:392px; background:#231f19; border:1px solid #2d2823; position:absolute; top:0px; right:0px; margin-top:61px;}
 .personalR h3 { height: 30px; font-size:16px; color:#6d6859; font-weight:normal; font-family:Calibri; margin-left:18px; margin-top:12px;}
 .woenr { width: 296px; height: 250px; margin:20px auto; overflow: hidden; position: relative;}
@@ -18,26 +18,26 @@
 .reveal ul { width: 276px; margin-left:6px; position: absolute; left: 0; top: -200px;background:#3b342a; overflow:hidden; }
 .reveal li { height: 100px; float:left;  width:276px;  cursor: pointer;}
 
-#revealLeft { position: absolute; right: 8px; top: 10px; cursor: pointer; width:11px; height:16px; background:url(psd/shang.gif) no-repeat;}
-#revealRight { position: absolute; right: 8px; bottom: 10px; cursor: pointer;width:11px; height:16px; background:url(psd/xia.gif) no-repeat; }
+#revealLeft { position: absolute; right: 8px; top: 10px; cursor: pointer; width:11px; height:16px; background:url(../psd/shang.gif) no-repeat;}
+#revealRight { position: absolute; right: 8px; bottom: 10px; cursor: pointer;width:11px; height:16px; background:url(../psd/xia.gif) no-repeat; }
 #matter { width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: #333;filter:alpha(opacity=30); opacity: 0.3; display: none; }
 .matterCont { width:800px; position: absolute; left: 50%; top: 50%; margin: 0 0 0 -400px; background: #312b23; display: none; overflow: hidden; border:1px solid #493e2f; z-index:3;}
-.shut { position: absolute; right: 10px; top: 10px;width:15px; height:15px; background:url(psd/guan.gif) no-repeat;}
+.shut { position: absolute; right: 10px; top: 10px;width:15px; height:15px; background:url(../psd/guan.gif) no-repeat;}
 
 #qi {width:552px;  height:495px;  position:absolute; top:0px; left:210px;  z-index:1;}
 #mo { width:444px; height:500px;  position: absolute; top:0px;  left:0; z-index:2; }
 #header{ height:61px; width:445px;}
 #header h1 { color:#e7e4d6; font-family:Calibri; font-size:32px; float:left; font-weight:normal;}
-#header p { float:left; background: url(psd/shu.gif) no-repeat 40px 4px; padding-top:6px; padding-left:5px; height:21px; color: #FFFFFF;}
+#header p { float:left; background:url(../../psd/shu.gif) no-repeat 40px 4px; padding-top:6px; padding-left:5px; height:21px; color: #FFFFFF;}
 #header p span { color:#c6c3b3; font-size:14px; margin-right:18px;}
 #header p strong { color:#b2c13e;font-family:Calibri; font-size:12px;}
 #ji { padding-top:70px; margin-left:50px; width:300px; height:270px;}
 
-.baby {  width: 250px; padding-left:16px; padding-right:10px;height:35px;background:url(psd/li2.gif) no-repeat 5px 15px;}
+.baby {  width: 250px; padding-left:16px; padding-right:10px;height:35px;background:url(../psd/li2.gif) no-repeat 5px 15px;}
 .baby strong { float:left; font-weight:normal; color:#a29d93; font-size:12px;font-family:Calibri;}
 .baby span { float:right;font-family:Calibri; color:#706959; font-size:12px;}
 
-#tea{ width:122px; float:left; height:100px;padding-left:16px; overflow:hidden;font-weight:normal;background:url(psd/li1.gif) no-repeat 5px 15px;}
+#tea{ width:122px; float:left; height:100px;padding-left:16px; overflow:hidden;font-weight:normal;background:url(../psd/li1.gif) no-repeat 5px 15px;}
 #tea h2 {color:#adc449; font-size:12px; font-weight:normal;  margin-bottom:5px; margin-top:10px;}
 #tea h6{color:#968b78; font-weight:normal; font-size:10px; font-family:Calibri; }
 #tea h4 {color:#cdcbbc; font-weight:normal; font-size:10px;}
@@ -62,33 +62,33 @@
 #qi{ width:552px; height:494px; position:absolute; top:0; left:210px; z-index:1;}
 #title{ width:444px; height:61px;}
 #title h3{ color:#e7e4d6; font-size:32px; font-weight:normal; font-family:'Calibri'; float:left;}
-#title p{ float:left; background:url(psd/shu.gif) no-repeat 45px 4px; padding-top:6px; padding-left:5px; height:21px; color:#fff;}
+#title p{ float:left; background:url(../psd/shu.gif) no-repeat 45px 4px; padding-top:6px; padding-left:5px; height:21px; color:#fff;}
 #title p span{ color:#c6c3b3; margin-right:10px; font-size:14px;}
 #title p strong{ color:#b2c13e; font-size:12px;font-family:'Calibri';}
 #personal{ width:442px; height:392px; border:1px solid #2d2823; background:#1d1c13; position:absolute;}
 #xj{ padding-top: 70px;  margin-left: 50px; width: 300px; height: 270px;}
-#carte{ background:url(psd/img1.gif) 36px -6px no-repeat; position: absolute; right:0; top: 182px; cursor:pointer;}
+#carte{ background:url(../psd/img1.gif) 36px -6px no-repeat; position: absolute; right:0; top: 182px; cursor:pointer;}
 #personalC{width: 218px; height: 392px; background: #231f19; position: relative; left: 0px; margin-top: 61px; top: 0px; border: 1px solid #2d2823; opacity:0;}
 #personalC ul{ position: absolute; left: 8px; bottom: 0; cursor: pointer; padding-bottom: 6px;}
-#personalC li{ height: 34px; line-height: 34px; color: #8f8a77; font-family: Calibri; width: 175px; background: #1c1913 url(psd/li.gif) no-repeat 8px center; font-size: 12px; margin-top: 6px; float: left; padding-left: 28px;}
+#personalC li{ height: 34px; line-height: 34px; color: #8f8a77; font-family: Calibri; width: 175px; background: #1c1913 url(../psd/li.gif) no-repeat 8px center; font-size: 12px; margin-top: 6px; float: left; padding-left: 28px;}
 #personalR{width: 308px; height: 392px; background: #231f19; border: 1px solid #2d2823; position: absolute; top: 0px; right: 0px; margin-top: 61px;}
 #personalR h3{height: 30px; font-size: 16px; color: #6d6859; font-weight: normal; font-family: Calibri; margin-left: 18px; margin-top: 12px;}
 #woenr{ width: 296px; height: 250px; margin: 20px auto; overflow: hidden; position: relative;}
 #woenr ul{ position: absolute;left: 0; top: 0;}
 #woenr li{ height: 35px; line-height: 35px; cursor: pointer;float: left; border-bottom: 1px solid #2f2b24;}
 #woenr .active{margin-bottom: 66px;}
-#baby{width: 250px; padding-left: 16px; padding-right: 10px; height: 35px; background: url(psd/li2.gif) no-repeat 5px 15px;}
+#baby{width: 250px; padding-left: 16px; padding-right: 10px; height: 35px; background: url(../psd/li2.gif) no-repeat 5px 15px;}
 #baby strong{ float: left; font-weight: normal; color: #a29d93; font-size: 12px; font-family: 'Calibri';}
 .reveal{width: 308px; height: 100px; position: absolute; left: 0; top: 135px; overflow: hidden;}
 .reveal ul{ width: 276px; margin-left: 6px; position: absolute; left: 0; top: -200px;  background: #3b342a; overflow: hidden;}
 .reveal li{ height: 100px; float: left; width: 276px; cursor: pointer;}
-.tea{width: 122px;float: left; height: 100px; padding-left: 16px; overflow: hidden; font-weight: normal; background: url(psd/li1.gif) no-repeat 5px 15px;}
+.tea{width: 122px;float: left; height: 100px; padding-left: 16px; overflow: hidden; font-weight: normal; background: url(../psd/li1.gif) no-repeat 5px 15px;}
 .tea h2{color: #adc449; font-size: 12px; font-weight: normal; margin-bottom: 5px; margin-top: 10px;}
 .tea h5{color: #adc449; margin-top: 30px; font-weight: normal; font-size: 10px;}
 .reveal li p{ width: 138px; float: left;}
 .reveal li p img{ width:138px;}
-#revealLeft{position: absolute; right: 8px; top: 10px; cursor: pointer; width: 11px; height: 16px; background: url(psd/shang.gif) no-repeat;}
-#revealRight{ position: absolute; right: 8px;  bottom: 10px; cursor: pointer; width: 11px; height: 16px; background: url(psd/xia.gif) no-repeat;}
+#revealLeft{position: absolute; right: 8px; top: 10px; cursor: pointer; width: 11px; height: 16px; background: url(../psd/shang.gif) no-repeat;}
+#revealRight{ position: absolute; right: 8px;  bottom: 10px; cursor: pointer; width: 11px; height: 16px; background: url(../psd/xia.gif) no-repeat;}
 #matter{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: #333; filter: alpha(opacity=30); opacity: 0.3; display: none;}
 #carte{ height:26px; overflow:hidden;}
 #personalC .robot{ width:200px; margin-top:50px; margin-left:9px;}
