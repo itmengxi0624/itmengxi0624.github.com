@@ -5,93 +5,11 @@
 <title>李建的个人网站</title>
 <link rel="stylesheet" href="base/base.css">
 <link rel="stylesheet" href="style/style.css">
-<link rel="stylesheet" href="style/css.css">
+<link rel="stylesheet" href="css.css">
 <script src="js/jsBank.js"></script>
 <script src="js/move8.js"></script>
-<style>
-.slide {width:100%;height:0;display:block;line-height:2em;color:#FFF;overflow:hidden;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;z-index:1000;background:url(psd/s04_bg.png);-webkit-transform:translate3d(0,0,0);
-}
-.slide p{ font-family: "Microsoft YaHei",Microsoft JhengHei, Helvetica, STHeiti STXihei, Arial; font-weight: 400; font-size:16px;}
-.slide h2 {font-size:2em;line-height:1.1em;letter-spacing:3px;margin:0; font-weight: 400;}
-.reason{width:95%;height:100%;margin:5% auto;position:relative;}
-
-.reason_title{text-align:center;height:100px;width:100%;line-height:100px;}
-
-.reason_detail{width:70%;height:90%;position:absolute;top:25%;left:15%;}
-
-.reason_tab_contain{padding-top:2%;height:50%;width:100%;}
-
-
-.reason_tab_list2{display:none;}
-.reason_tab{text-align:center;width:35%;height:50px;margin:0 auto;}
-.reason_tab ul{padding:0;}
-.reason_tab li{float:left;width:49%;height:50px;line-height:50px;border:1px solid #fff  ;margin-left:-1px;}
-#reason_tab_bar1{background-color:#fff;color:#993366;border-radius:25px 0 0 25px;-moz-border-radius:25px 0 0 25px;-webkit-border-radius:25px 0 0 25px;-ms-border-radius:25px 0 0 25px;-o-border-radius:25px 0 0 25px;}
-#reason_tab_bar2{border-radius:0 25px 25px 0;-moz-border-radius:0 25px 25px 0;-webkit-border-radius:0 25px 25px 0;-ms-border-radius:0 25px 25px 0;-o-border-radius:0 25px 25px 0;}
-#workspace{width:100%;height:0;background:url(psd/s03_bg.png); display:none; text-align:center; padding-top:10%; position:relative;}
-#workspace div{ color:#fff; font-size:20px; line-height:50px; height:100px; position:absolute; left:0; bottom:0; width:100%;}
-</style>
 <script>
 window.onload =  function(){
-	var oBody = document.body;
-	var oCantainer = document.getElementById('container');
-	var oHeader = document.querySelector('header');
-	var oInfo = document.getElementById('info');
-	var oAboutElk = document.getElementById('about_elk');
-	var oProduction = document.getElementById('production');
-	var oSpotPlay = document.getElementById('spot_play');
-	var oSlide = document.getElementById('slide');
-	var oWorkspace = document.getElementById('workspace');
-	
-	//transition
-	function setC3Style(obj,sName,sValue){
-		obj.style['Webkit'+sName.charAt(0).toUpperCase()+sName.substring(1)] = sValue;
-		obj.style['Moz'+sName.charAt(0).toUpperCase()+sName.substring(1)] = sValue;
-		obj.style['ms'+sName.charAt(0).toUpperCase()+sName.substring(1)] = sValue;
-		obj.style['O'+sName.charAt(0).toUpperCase()+sName.substring(1)] = sValue;
-		obj.style[sName] = sValue;
-	}
-	
-	//页面高度
-	window.onresize = function(){
-		document.body.style.height = document.documentElement.clientHeight+'px';
-	}
-	//loding_bar
-	;(function(){
-		var oLodBar = document.getElementById('loding_bar');
-		var timer = null;
-		oBody.style.overflow = 'hidden';
-		oHeader.addEventListener('click',function(){
-				setC3Style(oHeader,'transition','1s all ease');
-				setC3Style(oAboutElk,'transition','1s all ease');
-				setC3Style(oSlide,'transition','1s all ease');
-				oHeader.style.height = '20%';
-				oSlide.style.height = '100%';
-				oAboutElk.style.display = 'block';
-				oAboutElk.style.height = '80%';
-				oAboutElk.style.width = '100%';
-				oBody.style.overflow = 'visible';
-				var oGreet = document.getElementById('greet');
-				var aOpen = oGreet.children;
-				var i = 0;
-				var timer = null;
-				setTimeout(function(){
-					timer = setInterval(function(){
-						aOpen[i].style.lineHeight =  (oAboutElk.offsetHeight - oHeader.offsetHeight)/(aOpen.length+1)+'px';
-						move(aOpen[i],{opacity:1})
-						i++;
-						if(i == aOpen.length){
-							clearInterval(timer);
-							oSpotPlay.style.left = '13%';
-						}
-					},300);
-				},1000);
-			}
-		,false);
-
-	})();
-	
-	
 	//数码时钟
 	;(function(){
 		function time(){ 
@@ -119,54 +37,6 @@ window.onload =  function(){
 	})()
 	
 	
-	//中间按钮
-	;(function(){
-		var oSpot = document.getElementById('spot');
-		var aSpan = oSpotPlay.children;
-		setC3Style(oSpotPlay,'transition','1s all ease 1s');
-		oSpotPlay.style.height = '110px';
-		for(var i = 0;i<aSpan.length;i++){
-			setC3Style(aSpan[i],'transition','1s all ease 2s');
-			aSpan[i].style.opacity = 1;
-		}
-		oSpotPlay.addEventListener('click',function(){
-			setC3Style(oProduction,'transition','1s all ease 1s');
-			oSpotPlay.style.display = 'none';
-			setC3Style(oSpot,'transition','1s all ease');
-			oSpot.style.height = '80%';
-			oProduction.style.marginTop = '-20px';
-			oAboutElk.style.height = 0;
-			
-			setC3Style(oWorkspace,'transition','1s all ease');
-			oWorkspace.style.height = '90%';
-			oWorkspace.style.display = 'block';
-			oSlide.style.height = 0;
-		},false);
-	})();
-	
-	//兴趣
-	;(function(){
-		var oReasonTab1 = document.getElementById('reason_tab_bar1');
-		var oReasonTab2 = document.getElementById('reason_tab_bar2');
-		var oReasonList1 = document.getElementById('reason_tab_list1');
-		var oReasonList2 = document.getElementById('reason_tab_list2');
-		oReasonTab1.addEventListener('click',function(){
-			oReasonTab1.style.background = '#fff';
-			oReasonTab1.style.color = '#936';
-			oReasonList1.style.display = 'block';
-			oReasonTab2.style.background = 'none';
-			oReasonTab2.style.color = '#fff';
-			oReasonList2.style.display = 'none';
-		},false);
-		oReasonTab2.addEventListener('click',function(){
-			oReasonTab2.style.background = '#fff';
-			oReasonTab2.style.color = '#936';
-			oReasonList2.style.display = 'block';
-			oReasonTab1.style.background = 'none';
-			oReasonTab1.style.color = '#fff';
-			oReasonList1.style.display = 'none';
-		},false);
-	})();
 	
 	//简历
 	;(function(){
@@ -219,7 +89,7 @@ window.onload =  function(){
 			Ev.cancelBubble=true;
 		},false);
 		oBtn.addEventListener('click',function(ev){
-			setC3Style(oRight1,'transition','1s all ease');
+			oRight1.style.WebkitTransition = '1s all ease';
 			var Ev=ev||event;
 			if(oRight1.style.opacity == 1){
 				oBtn.style.background='url(psd/img1.gif) no-repeat 36px -6px';
@@ -488,9 +358,6 @@ window.onload =  function(){
 
 <body>
 <div id="container">
-	<header>
-    	<h1>Elk</h1>
-    </header>
     <div id="spot">
     	
         <div id="production">
@@ -594,7 +461,7 @@ window.onload =  function(){
                     <h2>//Introduce Myself</h2>
                     <div class="cent">
                         <div class="cle">
-                            我叫李建，来自河北保定，2015年接触IT这个行业，觉得这就是我想干的事。我和大多数程序员一样，简单，率真，聪明，求知欲望强，喜欢研究最新技术，喜欢穿T恤，不喜欢穿正装，不喜欢户外运动。目前从事这个行业将近一年时间，虽然时间不长 但是做过一些不同类似的网站，也正在学习前端技术，希望能成为一名资深的前端开发工程师。
+                            我叫李建，来自河北保定，2015年接触IT这个行业，觉得这就是我想干的事。我和大多数程序员一样，简单，率真，聪明，求知欲望强，喜欢研究最新技术，喜欢户外运动，喜欢穿T恤，不喜欢穿正装。目前从事这个行业将近一年时间，虽然时间不长 但是做过一些不同类似的网站，也正在学习前端技术，希望能成为一名资深的前端开发工程师。
                         </div>
                         <div class="cri"><img src="psd/0bc2a30300bbae603912bbc4.gif"/></div>
                     </div>
@@ -628,8 +495,8 @@ window.onload =  function(){
                     <h2>//Personal Resume</h2>
                     <div class="cent">
                         <div class="cle">
-                            2011年9月——2015年7月:<br />&nbsp;&nbsp;北京高级财务管理专修学院<br />
-                            2015年07月——2016年5月:<br />&nbsp;&nbsp;宇泽创新科技有限公司
+                            2011年9月——2015年7月:<br />&nbsp;&nbsp;重庆理工大学<br />
+                            2015年08月——2016年6月:<br />&nbsp;&nbsp;北京爱子欣网络科技有限公司
                         </div>
                         <div class="cri"><img src="psd/2.jpg" /></div>
                     </div>
@@ -761,70 +628,16 @@ window.onload =  function(){
             </div>
         </div>
     </div>
-    <section id="about_elk">
-  		<div id="clock" class="date">
-            <div class="time" id="time">
-                <img class="num" src="images/0.png" alt="0" />
-                <img class="num" src="images/0.png" alt="0" />
-                <img src="images/sign.png" alt="sign" />
-                <img class="num" src="images/0.png" alt="0" />
-                <img class="num" src="images/0.png" alt="0" />
-                <img src="images/sign.png" alt="sign" />
-                <img class="num" src="images/0.png" alt="0" />
-                <img class="num" src="images/0.png" alt="0" />
-            </div>
-   		</div>
-    	<div class="autodyne">
-        	<div class="portrait"></div>
-            <div id="spot_play" title="查看个人简历及作品展示">
-                <span>come in</span>
-                <span class="s2">come in</span>
-            </div>
-
-        </div>
-        <div class="greet" id="greet">
-                <span>李建</span>
-                <strong>前端工程师</strong>
-                <p>一年前端工作经验</p>
-                <p>精通Photoshop、Html/Html5、Css/Css3</p>
-                <p>熟练使用Javascript/Jquery、Bootstrap、Ajax</p>
-        </div>
-    </section>
-    
-	<div class="slide" id="slide">
-			<div class="reason">
-				<div class="reason_title">
-					<h2>为什么我要从事Web前端？</h2>
-				</div>
-				
-				<div class="reason_detail">
-
-					<div class="reason_tab_contain">
-						<div class="reason_tab_list1" id="reason_tab_list1">
-						<p>曾经我一直都有一个想法就是做一个自己的网站，大学时因为专业问题，没去深入学习web前端课程。然而毕业工作之后，从接触SEO开始，慢慢增加了对web前端的了解，后续自己下载关于html和css教学视频，同时自学JavaScript知识，并深入了解这个行业。如今才发现，Web前端就是我真正感兴趣的行业，在学习练习的过程，为了达到自己想要的效果，坚持不懈的在网上搜寻资料，甚至有时会熬夜。这也是我发现，自从上班以来从来没为哪一份工作比这付出的多的原因————web才是我的兴趣。</p>
-						</div>
-						<div class="reason_tab_list2" id="reason_tab_list2">
-							<p>为什么会有成就感？其实很简单，知识永无止境。特别对web前端来说，当我自己想实现一个页面效果，而恰恰这个页面效果我不会，于是我会请教身边的web前端大神或者自己上网查询，并通过不同方法去实现，直到页面输出自己想要的效果时候，我会觉得自己心里满满的成就感。同时也会让我觉得自己又学到一个新技能。</p>
-						</div>
-					</div>
-
-					<div class="reason_tab">
-						<ul>
-							<li id="reason_tab_bar1">兴趣</li>
-							<li id="reason_tab_bar2">成就感</li>
-						</ul>
-					</div>
-					
-				</div>
-
-			</div>
-			
-		</div>
-	<div id="workspace">
-    	<img src="psd/workspace.png">
-        <div>
-       		<p>© Design By Elk</p>
-       		<p>联系QQ:737148499    邮箱：itmengxi@sina.com</p>
+    <div id="clock" class="date">
+        <div class="time" id="time">
+            <img class="num" src="images/0.png" alt="0" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img src="images/sign.png" alt="sign" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img src="images/sign.png" alt="sign" />
+            <img class="num" src="images/0.png" alt="0" />
+            <img class="num" src="images/0.png" alt="0" />
         </div>
     </div>
 </div>

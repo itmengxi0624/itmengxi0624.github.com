@@ -20,7 +20,6 @@
 				var c = Math.sqrt(a*a+b*b);
 				console.log(c);
 				var scale = 1-c/300;
-				aInput[i].value = scale;
 				(scale<0.5)&&(scale = 0.5);
 				aImg[i].style.width = 128*scale + 'px';
 				aImg[i].style.height = 128*scale + 'px';
@@ -32,11 +31,6 @@
 </head>
 
 <body>
-	<input type="text">
-	<input type="text">
-	<input type="text">
-	<input type="text">
-	<input type="text">
 <div id="box">
 	<img src="img2/1.png" width="64" />
 	<img src="img2/2.png" width="64" />
