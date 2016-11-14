@@ -2,645 +2,282 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>李建的个人网站</title>
-<link rel="stylesheet" href="base/base.css">
-<link rel="stylesheet" href="style/style.css">
-<link rel="stylesheet" href="css.css">
-<script src="js/jsBank.js"></script>
-<script src="js/move8.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<!--视口/页面宽度跟设备宽度走,初始缩放比例1,-->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no,email=no">
+<title>无标题文档</title>
+<link type="text/css" rel="stylesheet" href="css/base.css" />
+<link type="text/css" rel="stylesheet" href="css/swiper-3.3.1.min.css" />
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/touch.js"></script>
+<script type="text/javascript" src="js/swiper-3.3.1.min.js"></script>
+<style>
+html{font-size:100px;}
+.wrap{ width:6.4rem; margin:0 auto;}
+/*header*/
+.head{ width:6.4rem; height:2.55rem; position:relative;}
+.head ul .swiper-slide{ width:6.4rem; height:2.55rem; float:left;}
+.head ul .swiper-slide a{ display:block; width:100%; height:100%;}
+.head ul .swiper-slide img{ width:6.4rem;}
+.head .swiper-pagination{ height:0.16rem; position:absolute; bottom:0.14rem;  left:70%;}
+.head .swiper-pagination .swiper-pagination-bullet{ width:0.17rem; height:0.16rem; background:url(img/btn2.png) no-repeat; margin-right:0.1rem; float:left; background-size:0.17rem;}
+.head .swiper-pagination .swiper-pagination-bullet-active{ background-image:url(img/btn1.png);}
+/*项目*/
+.items{ margin-top:0.11rem; width:6.4rem; height:4.66rem; border-top:0.01rem solid #dcdbdc; background:#fff; border-bottom:0.01rem solid #dcdbdc;}
+.items li{ float:left; border-left:0.01rem dashed #dfdfdf; border-right:0.01rem dashed #ededed; border-bottom:0.01rem dashed #dfdfdf; border-top:0.01rem dashed #ededed; background:url(img/jiayou.png) 0.39rem 0.24rem no-repeat; background-size:0.97rem 1.02rem;}
+.items_a{ display:block; width:100%; height:100%; float:left;}
+.items .items_l{ width:3.22rem; height:1.54rem; border-left:none;}
+.items .items_r{ width:3.14rem; height:1.54rem; border-right:none;}
+.items .items_1{ border-top:none;}
+.items .items_2{ border-top:none; background-image:url(img/weizhang.png);}
+.items .items_3{ background-image:url(img/2shou.png);}
+.items .items_4{ background-image:url(img/baoxian.png);}
+.items .items_5{ border-bottom:none; background-image:url(img/xiche.png);}
+.items .items_6{ border-bottom:none; background-image:url(img/4sdian.png);}
+.items_ref{ margin-left:1.49rem; margin-top:0.41rem;}
+.items_ref h6{ font-size:0.28rem; line-height:0.46rem; font-weight:normal;}
+.items_ref p{ font-size:0.16rem; line-height:0.16rem;}
+/*banner*/
+.banner{ width:6.4rem; height:2.05rem; margin-top:0.1rem; position:relative;}
+.banner ul{ width:6.4rem; height:2.05rem;}
+.banner ul li{ width:6.4rem; height:2.05rem; float:left;}
+.banner ul li img{ width:6.4rem;}
+.banner .swiper-pagination{ height:0.16rem; position:absolute; bottom:0.09rem; left:50%; margin-left:-0.405rem;}
+.banner .swiper-pagination  .swiper-pagination-bullet{ width:0.17rem; height:0.16rem; background:url(img/btn2.png) no-repeat; margin-right:0.1rem; float:left; background-size:0.17rem;}
+.banner .swiper-pagination .swiper-pagination-bullet-active{ background-image:url(img/btn1.png);}
+/*限时抢购*/
+.buy{ width:6.1rem; height:4.02rem; margin-top:0.1rem; border-top:0.01rem #dadada solid; border-bottom:0.01rem #dadada solid; padding-left:0.3rem; background:#fff;}
+.title{ width:5.74rem; height:0.75rem; background:url(img/line.png)0.15rem center no-repeat; margin-left:0.05rem; text-align:center; background-size:5.34rem;}
+.title h6{ font-size:0.25rem; line-height:0.75rem; color:#b46f00;}
+.buy .limit{ width:5.79ren; height:2.95rem;}
+.buy .limit a{ float:left; position:relative;}
+.buy .limit .audi{ width:2.53rem; height:2.95rem; background:url(img/audi.png) no-repeat; background-size:2.53rem; margin-right:0.15rem;}
+.buy .limit .audi .timer{ position:absolute; right:0; top:0; text-align:center;}
+.timer{ width:1.08rem; height:0.33rem; background:url(img/buy_bg.png); background-size:1.08rem;}
+.timer p{ color:#fff; line-height:0.33rem; font-size:0.14rem;}
+.model{ width:2.42rem; height:0.73rem; position:absolute; left:0; bottom:0; background:rgba(0,0,0,0.5); padding-left:0.11rem; padding-top:0.08rem; font-style:normal; overflow:hidden;}
+.model p{ line-height:0.4rem; font-size:0.16rem; color:#fff; width:2.22rem;}
+.model span{ font-size:0.18rem; color:#ff8a00;}
+.aodi{ width:3.11rem; height:1.42rem; background:url(img/aodi.png) no-repeat; background-size:3.11rem;}
+.buy .limit .aodi .timer_2{ position:absolute; left:0; top:0; text-align:center;}
+.timer_2{ width:1.08rem; height:0.33rem; background:url(img/buy_bg3.png); background-size:1.08rem;}
+.timer_2 p{ color:#fff; line-height:0.33rem; font-size:0.14rem;}
+.type{ width:100%; position:absolute; left:0; bottom:0; background:rgba(0,0,0,0.5); line-height:0.4rem; font-style:normal; overflow:hidden;}
+.type p{ margin-left:0.11rem; font-size:0.16rem; color:#fff; width:2.22rem;}
+.type span{ font-size:0.18rem; color:#ff8a00; margin-right:0.11rem;}
+.bmw{ background-image:url(img/bmw.png); margin-top:0.1rem;}
+/*车友活动*/
+.car_friend{ width:6.14rem; height:1.77rem; border:0.01rem solid #dbdbdb; border-left:none; border-right:none; margin-top:0.1rem; background:#fff; padding-left:0.26rem; margin-bottom:0.12rem;}
+.text{ width:2.79rem;}
+.text h5{ font-size:0.26rem; color:#61b400; line-height:0.48rem; border-bottom:0.01rem solid #7fbe47; margin-top:0.07rem; margin-bottom:0.12rem;}
+.text p{ line-height:0.3rem; font-size:0.16rem;}
+.activity{ width:3.11rem; background:url(img/activity.png) left center no-repeat; height:1.53rem; background-size:3.11rem; position:relative; padding-top:0.24rem;}
+.activity i{ position:absolute; left:0; width:0.37rem; height:0.88rem; top:0.33rem; background:url(img/mark.png); background-size:0.37rem;}
+.activity p{ width:2.91rem; line-height:0.35rem; font-size:0.24rem; text-align:center; color:#227682; font-weight:bold;}
+/*商品展示*/
+.product_show{ width:6.1rem; height:7.99rem; padding-left:0.3rem;}
+.product_show h3{ width:3.37rem; line-height:0.74rem; background:url(img/line_show.png) center no-repeat; font-size:0.26rem;  color:#ab0b34; font-weight:normal; background-size:5.34rem; padding-left:2.47rem;}
+.product_show ul{}
+.product_show li{ float:left; width:2.8rem; height:3.2rem; background:#e9e9e9; margin-right:0.19rem; margin-bottom:0.18rem;}
+.product_show li a{ display:block; background:url(img/show1.png) no-repeat; background-size:2.8rem; height:2.42rem;}
+.product_show li p{ line-height:0.43rem; font-size:0.16rem; margin-left:0.11rem; color:#2f2f2f;}
+.product_show li span{ margin-left:0.11rem; font-size:0.18rem; color:#ff8a00; display:block;}
+.product_show li .benchi{ background-image:url(img/show2.png);}
+.product_show li .benz{ background-image:url(img/show3.png);}
+.product_show li .beiqi{ background-image:url(img/show4.png);}
+</style>
 <script>
-window.onload =  function(){
-	//数码时钟
-	;(function(){
-		function time(){ 
-			function toDou(n){
-				return n<10?'0'+n:''+n;
-			}
-			//获取时间
-			var oDate = new Date();
-			var h = oDate.getHours();
-			var min = oDate.getMinutes();
-			var s = oDate.getSeconds();
-			var week = oDate.getDay();
-			var str2 = toDou(h)+'-'+toDou(min)+'-'+toDou(s)+'-'+week;
-			var oTime = document.getElementById('time');
-			var aTime = oTime.getElementsByTagName('img'); 
-			for(var i = 0;i<aTime.length;i++){
-				if(aTime[i].className == 'num'){
-					aTime[i].src = 'images/'+str2.charAt(i)+'.png';
-				}
-			}
-		}
-		time();
-		setInterval(time,1000);
-			
-	})()
-	
-	
-	
-	//简历
-	;(function(){
-		var obj = document.getElementById("box");
-		var personalR = document.getElementById("personalR");
-		var Woenr = document.getElementById("woenr");
-		var WoenrUl = Woenr.getElementsByTagName("ul")[0];
-		var aWoenrLi = WoenrUl.getElementsByTagName("li");
-		var reveal = document.getElementById("reveal");
-		var revealLeft = document.getElementById("revealLeft");
-		var revealRight = document.getElementById("revealRight");
-		var revealUl = document.getElementById("reveal_ul");
-		var arevealLi = revealUl.getElementsByTagName("li");
-		var matter = document.getElementById("matter");
-		var shut = document.getElementById("shut");
-		var matterDiv = document.getElementsByTagName("*");
-		var attrDiv = [];
-		var attrShut = [];
-		var attrShutA = [];
-		var attrAmong = [];
-		var personalCWidth = 0;
-		var t = null;
-		var time = null;
-		var i = 0; 
-		var speed = 2;
-		
-		
-		
-		var oBtn=document.getElementById('carte');
-		var oLeft=document.getElementById('mo');
-		var oRight=document.getElementById('qi');
-		var oRight1=document.getElementById('personalC');
-		var personLi = oRight1.getElementsByTagName("li");
-		var sUl=oRight1.getElementsByTagName('ul')[0];
-		
-		
-		sUl.addEventListener('mouseover',function(ev){
-			
-			var Ev=ev||event;
-			doMove(oLeft, -110);
-			doMove(oRight, 350);
-			Ev.cancelBubble=true;
-		},false);
-		
-		sUl.addEventListener('mouseover',function(ev){
-			
-			var Ev=ev||event;
-			doMove(oLeft, -110);
-			doMove(oRight, 350);
-			Ev.cancelBubble=true;
-		},false);
-		oBtn.addEventListener('click',function(ev){
-			oRight1.style.WebkitTransition = '1s all ease';
-			var Ev=ev||event;
-			if(oRight1.style.opacity == 1){
-				oBtn.style.background='url(psd/img1.gif) no-repeat 36px -6px';
-				doMove(oLeft, 0);
-				doMove(oRight, 214);
-				Ev.cancelBubble=true;
-				oRight1.style.opacity = 0;
-			}else{
-				oBtn.style.background='url(psd/img1.gif) no-repeat 36px 7px';
-				doMove(oLeft, -110);
-				doMove(oRight, 350);
-				Ev.cancelBubble=true;
-				oRight1.style.opacity = 1;
-			}
-		},false);
-		
-		
-		function doMove(obj, iTarget){
-			clearInterval(obj.iTime);
-			obj.iTime=setInterval(function(){
-				
-				if(obj.offsetLeft==iTarget){
-					clearInterval(obj.iTime);
-				}
-				else
-				{
-					var iSpeed=(iTarget-obj.offsetLeft)/8;
-					iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
-					
-					obj.style.left=obj.offsetLeft+iSpeed+'px';
-				}
-			}, 14);
-			
-		}
-	
-		
-		for (i=0;i<personLi.length;i++){
-			personLi[i].addEventListener('mouseover',zhong,false);
-			personLi[i].addEventListener('mouseout',chu,false);
-		}
-		function zhong(){
-			for (i=0;i<personLi.length;i++){
-				this.style.background='#332d24 url(psd/li3.gif) no-repeat 8px center';
-			}
-		}
-		function chu(){
-			for (i=0;i<personLi.length;i++){
-				this.style.background='#1c1913 url(psd/li.gif) no-repeat 8px center';
-			}
-		}
-		
-		for (i=0;i<arevealLi.length;i++){
-			arevealLi[i].addEventListener('mouseover',over,false);
-			arevealLi[i].addEventListener('mouseout',nai,false);
-		}
-		function over(){
-			for (i=0;i<arevealLi.length;i++){
-				this.style.background='#453d31';
-			}
-		}
-		function nai(){
-			for (i=0;i<arevealLi.length;i++){
-				this.style.background='#3b342a';
-			}
-		}
-		for (i=0;i<aWoenrLi.length;i++){
-			aWoenrLi[i].addEventListener('mouseover',ku,false);
-			aWoenrLi[i].addEventListener('mouseout',out,false);
-		}
-		function ku(){
-			for (i=0;i<aWoenrLi.length;i++){
-				this.style.background='#453d31';
-			}
-		}
-		function out(){
-			for (i=0;i<aWoenrLi.length;i++){
-				this.style.background='#231f19';
-			}
-		}
-		for(i = 0; i < matterDiv.length; i++){
-			if(matterDiv[i].className == "among"){
-				attrAmong.push(matterDiv[i]);
-			}	
-		}
-		for(i = 0; i < matterDiv.length; i++){
-			if(matterDiv[i].className == "shutA"){
-				attrShutA.push(matterDiv[i]);
-			}	
-		}
-		for(i = 0; i < personLi.length; i++){
-			personLi[i].index = i;
-			personLi[i].addEventListener('click',function (){
-				matter.style.display = "block";
-				attrAmong[this.index].style.display = "block";
-				attrAmong[this.index].style.height = 0 + "px";
-				startMove(attrAmong[this.index], {height: 500,marginTop: -250});
-			},false);
-		}
-		for(i = 0; i < attrShutA.length; i++){
-			attrShutA[i].index = i;
-			attrShutA[i].addEventListener('click',function (){
-				var weniw = this.index;
-				startMove(attrAmong[this.index], {height: 0,marginTop: 0},function (){
-						matter.style.display = "none";
-						attrAmong[weniw].style.display = "none";	
-					});
-			},false);
-		}
-		for(i = 0; i < matterDiv.length; i++){
-			if(matterDiv[i].className == "matterCont"){
-				attrDiv.push(matterDiv[i]);
-			}	
-		}
-		for(i = 0; i < matterDiv.length; i++){
-			if(matterDiv[i].className == "shut"){
-				attrShut.push(matterDiv[i]);
-			}	
-		}
-		for(i = 0; i < arevealLi.length; i++){
-			arevealLi[i].index = i;
-			arevealLi[i].addEventListener('click',function (){
-				attrDiv[this.index].style.display = "block";
-				attrDiv[this.index].style.height = 0 + "px";
-				startMove(attrDiv[this.index], {height: 500,marginTop: -250});
-			},false);
-		}
-		for(i = 0; i < attrShut.length; i++){
-			attrShut[i].index = i;
-			attrShut[i].addEventListener('click',function (){
-				var weniw = this.index;
-				startMove(attrDiv[this.index], {height: 0,marginTop: 0},function (){
-						matter.style.display = "none";
-						attrDiv[weniw].style.display = "none";	
-					});
-			},false);
-		}
-		for(i = 0; i < aWoenrLi.length; i++){
-			aWoenrLi[i].index = i;
-			aWoenrLi[i].addEventListener('click',function (){
-				speed = this.index;
-				show(speed);
-			},false);
-		}
-		revealRight.addEventListener('click',function (){
-			speed+=1;
-			if(speed >= aWoenrLi.length){
-				speed = aWoenrLi.length-1;
-			};
-			show(speed);
-		},false);
-		revealLeft.addEventListener('click',function (){
-			speed-=1;
-			if(speed <= 0){
-				speed = 0;
-			};
-			show(speed);
-		},false);
-		function show(speed){
-			for(i = 0; i < aWoenrLi.length; i++){
-				aWoenrLi[i].className = "";
-			}
-			aWoenrLi[speed].className = "active";
-			startMove(WoenrUl, {top: -aWoenrLi[0].offsetHeight * (speed-2)});
-			startMove(revealUl, {top: -arevealLi[0].offsetHeight * speed});
-		}
-	})();
-
-	
-	//打开css例子
-	;(function(){
-		var oDemo1 = document.getElementById('demo1');
-		var oDemo2 = document.getElementById('demo2');
-		var oDemo3 = document.getElementById('demo3');
-		var oDemo4 = document.getElementById('demo4');
-		var oDemo5 = document.getElementById('demo5');
-		var oDemo6 = document.getElementById('demo6');	
-		oDemo1.addEventListener('click',function(){
-			window.open('css_code/meilishuo/meilishuo.html','_blank');
-		},false);
-		oDemo2.addEventListener('click',function(){
-			window.open('css_code/mi/mi.html','_blank');
-		},false);
-		oDemo3.addEventListener('click',function(){
-			window.open('css_code/youku/youku.html','_blank');
-		},false);
-		oDemo4.addEventListener('click',function(){
-			window.open('css_code/aiqiyi/aiqiyi.html','_blank');
-		},false);
-		oDemo5.addEventListener('click',function(){
-			window.open('css_code/taobao/taobao.html','_blank');
-		},false);
-		oDemo6.addEventListener('click',function(){
-			window.open('css_code/changyou/changyou.html','_blank');
-		},false);
-
-	})();
-	
-	//打开js例子
-	;(function(){
-		var oDemo1 = document.getElementById('js-demo1');
-		var oDemo2 = document.getElementById('js-demo2');
-		var oDemo3 = document.getElementById('js-demo3');
-		var oDemo4 = document.getElementById('js-demo4');
-		var oDemo5 = document.getElementById('js-demo5');
-		var oDemo6 = document.getElementById('js-demo6');	
-		oDemo1.addEventListener('click',function(){
-			window.open('js_code/four/APPLE.html','_blank');
-		},false);
-		oDemo2.addEventListener('click',function(){
-			window.open('js_code/slide.html','_blank');
-		},false);
-		oDemo3.addEventListener('click',function(){
-			window.open('js_code/slide/slide.html','_blank');
-		},false);
-		oDemo4.addEventListener('click',function(){
-			window.open('js_code/round.html','_blank');
-		},false);
-		oDemo5.addEventListener('click',function(){
-			window.open('js_code/timg.html','_blank');
-		},false);
-		oDemo6.addEventListener('click',function(){
-			window.open('js_code/separate.html','_blank');
-		},false);
-
-	})();
-	
-	//打开HTML5&CSS3例子
-	;(function(){
-		var oDemo1 = document.getElementById('h5c3-demo1');
-		var oDemo2 = document.getElementById('h5c3-demo2');
-		var oDemo3 = document.getElementById('h5c3-demo3');
-		var oDemo4 = document.getElementById('h5c3-demo4');
-		var oDemo5 = document.getElementById('h5c3-demo5');
-		var oDemo6 = document.getElementById('h5c3-demo6');	
-		oDemo1.addEventListener('click',function(){
-			window.open('h5_code/box.html','_blank');
-		},false);
-		oDemo2.addEventListener('click',function(){
-			window.open('h5_code/boom.html','_blank');
-		},false);
-		oDemo3.addEventListener('click',function(){
-			window.open('h5_code/around.html','_blank');
-		},false);
-		oDemo4.addEventListener('click',function(){
-			window.open('h5_code/books.html','_blank');
-		},false);
-		oDemo5.addEventListener('click',function(){
-			window.open('h5_code/flip.html','_blank');
-		},false);
-		oDemo6.addEventListener('click',function(){
-			window.open('h5_code/projection.html','_blank');
-		},false);
-
-	})();
-	
-	//打开捕鱼达人
-	;(function(){
-		var oCan = document.getElementById('c1');
-		oCan.addEventListener('click',function(){
-			window.open('fish_game/demo.html','_blank');
-		},false);
-	})();
-};
+;(function(win,doc){
+	function change (){
+		doc.documentElement.style.fontSize = 100*doc.documentElement.clientWidth/640+'px';
+	}
+	change();
+	win.addEventListener('resize',change,false);
+})(window,document);
 </script>
 </head>
 
 <body>
-<div id="container">
-    <div id="spot">
-    	
-        <div id="production">
-            <div id="mo">
-                <div id="title">
-                    <h3>Elk</h3>
-                    <p>
-                        <span>2016</span>
-                        <strong>WEB DEVELOPER</strong>
-                    </p>
-                </div>
-                <div id="personal">
-                    <p id="xj">
-                        <img src="psd/zhaoxiangji.png">
-                    </p>
-                    <div id="carte">
-                        <img src="psd/personalL.gif">
-                    </div>
-                </div>
+    <div class="wrap">
+	<!--header-->
+    	<header class="swiper-container head">
+        	<ul class="clear swiper-wrapper">
+                <li class="swiper-slide">
+               		<a href="javascript:;" target="_blank"><img src="img/banner1.png" /></a>
+                </li>
+                <li class="swiper-slide">
+                	<a href="javascript:;" target="_blank"><img src="img/banner2.png" /></a>
+                </li>
+                <li class="swiper-slide">
+                	<a href="javascript:;" target="_blank"><img src="img/banner1.png" /></a>
+                </li>
+                <li class="swiper-slide">
+                	<a href="javascript:;" target="_blank"><img src="img/banner2.png" /></a>
+                </li>
+                <li class="swiper-slide">
+                	<a href="javascript:;" target="_blank"><img src="img/banner1.png" /></a>
+                </li>
+            </ul>
+            <div class="swiper-pagination">
+            	<span class="swiper-pagination-bullet"></span>
+            	<span class="swiper-pagination-bullet"></span>
+            	<span class="swiper-pagination-bullet"></span>
+            	<span class="swiper-pagination-bullet"></span>
+            	<span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
             </div>
-            <div id="qi">
-                <div id="personalC">
-                    <img src="psd/u=2270585020,1017659283&fm=21&gp=0.png" class="robot">
-                    <ul>
-                        <li>Who am I</li>
-                        <li>What can I do</li>
-                        <li>experience</li>
-                        <li>contact me</li>
-                    </ul>
-                </div>
-                <div id="personalR">
-                    <h3>//My Works</h3>
-                    <div id="woenr">
-                        <ul>
-                            <li>
-                                <div id="baby">
-                                    <strong>HTML&CSS</strong>
-                                </div>
-                            </li>
-                            <li class="active">
-                                <div id="baby">
-                                    <strong>JavaScript</strong>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="baby">
-                                    <strong>HTML5&CSS3</strong>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="baby">
-                                    <strong>捕鱼达人</strong>
-                                </div>
-                            </li>
-                        </ul>
+        </header>
+    <!--项目-->
+    	<ul class="items clear">
+        	<li class="items_l items_1 clear">
+            	<a href="javascript:;" class="items_a">
+                    <div class="items_ref">
+                        <h6>加油卡</h6>
+                        <p>大额充值享折扣</p>
                     </div>
-                    <div class="reveal" id="reveal">
-                        <ul id="reveal_ul">
-                            <li class="clearfix">
-                                <div class="tea">
-                                    <h2>HTML&CSS</h2>
-                                    <h5>+INFO</h5>
-                                </div>
-                                <p><img src="psd/u=2115461906,3713660013&fm=21&gp=0.jpg"></p>
-                            </li>
-                            <li class="clearfix">
-                                <div class="tea">
-                                    <h2>JavaScript</h2>
-                                    <h5>+INFO</h5>
-                                </div>
-                                <p><img src="psd/u=1515122647,1659030776&fm=21&gp=0.jpg"></p>
-                            </li>
-                            <li class="clearfix">
-                                <div class="tea">
-                                    <h2>HTML5&CSS3</h2>
-                                    <h5>+INFO</h5>
-                                </div>
-                                <p><img src="psd/u=2096616551,1814278659&fm=21&gp=0.jpg"></p>
-                            </li>
-                            <li class="clearfix">
-                                <div class="tea">
-                                    <h2>捕鱼达人</h2>
-                                    <h5>+INFO</h5>
-                                </div>
-                                <p></p>
-                            </li>
-                        </ul>
-                        <span id="revealLeft"></span>
-                        <span id="revealRight"></span>
+                </a>
+            </li>
+        	<li class="items_r items_2 clear">
+            	<a href="javascript:;" class="items_a">
+                    <div class="items_ref">
+                        <h6>违章代办</h6>
+                        <p>诚心为您服务</p>
                     </div>
-                </div>
+                </a>
+            </li>
+        	<li class="items_l items_3 clear">
+            	<a href="javascript:;" class="items_a">
+                    <div class="items_ref">
+                        <h6>二手车</h6>
+                        <p>精品好车任您选</p>
+                    </div>
+                </a>
+            </li>
+        	<li class="items_r items_4 clear">
+            	<a href="javascript:;" class="items_a">
+                    <div class="items_ref">
+                        <h6>低价保险</h6>
+                        <p>保费立减低至8折</p>
+                    </div>
+                </a>
+            </li>
+        	<li class="items_l items_5 clear">
+            	<a href="xiche.html" class="items_a">
+                    <div class="items_ref">
+                        <h6>洗车</h6>
+                        <p>周到的服务欢迎您</p>
+                    </div>
+                </a>
+            </li>
+        	<li class="items_r items_6 clear">
+            	<a href="javascript:;" class="items_a">
+                    <div class="items_ref">
+                        <h6>4S店</h6>
+                        <p>汽车销售服务</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    <!--banner-->
+    	<section class="banner swiper-container">
+        	<ul class="clear swiper-wrapper">
+            	<li class="swiper-slide">
+                	<a href="javascript:;" target="_blank"><img src="img/pic.png" /></a>	
+                </li>
+            	<li class="swiper-slide">	
+                	<a href="javascript:;" target="_blank"><img src="img/pic.png" /></a>
+                </li>
+            	<li class="swiper-slide">
+                	<a href="javascript:;" target="_blank"><img src="img/pic.png" /></a>	
+                </li>
+            </ul>
+            <div class="swiper-pagination">
+            	<span class="swiper-pagination-bullet"></span>
+            	<span class="swiper-pagination-bullet"></span>
+            	<span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
             </div>
-        </div>
-        <div id="matter">
-            
-        </div>
-        <div id="bxo">
-            <div class="among" id="among">
-                <div class="shutA"></div>
-                  <div>
-                    <h2>//Introduce Myself</h2>
-                    <div class="cent">
-                        <div class="cle">
-                            我叫李建，来自河北保定，2015年接触IT这个行业，觉得这就是我想干的事。我和大多数程序员一样，简单，率真，聪明，求知欲望强，喜欢研究最新技术，喜欢户外运动，喜欢穿T恤，不喜欢穿正装。目前从事这个行业将近一年时间，虽然时间不长 但是做过一些不同类似的网站，也正在学习前端技术，希望能成为一名资深的前端开发工程师。
-                        </div>
-                        <div class="cri"><img src="psd/0bc2a30300bbae603912bbc4.gif"/></div>
-                    </div>
-                </div>
+        </section>
+    <!--限时抢购-->
+    	<section class="buy">
+        	<div class="title">
+            	<h6>限时抢购</h6>
             </div>
-            <div class="among">
-                <div class="shutA"></div>
-                 <div>
-                    <h2>//Vocational Skills</h2>
-                    <div class="cent">
-                        <div class="cle1">
-                            1. 熟练使用Photoshop对设计图进行切割和导出。<br />
-                            2. 熟练掌握HTML/CSS前端开发技术，熟悉W3C标准，熟悉页面优化，对表现与数据分离、前台和后台分离、Web语意化等有深刻理解。<br />
-                            3. 对主浏览器的兼容性有一定了解，并有相关问题的解决经验。<br />
-                            4. 熟悉JavaScript原生编程，熟悉相关的设计模式。<br />
-                            5. 了解面向对象机制、设计模式，能运用sea.js模块化MVC、面向对象的方式编程。<br />
-                            6. 熟悉各种前端流行框架，如jQuery/AngularJs，对编写jQuery组件有一定经验。 <br />
-                            7. 熟悉Ajax/jsonp数据交互技术。<br />
-                            8. 熟悉已标准化的HTML5新特性，对于使用HTML5提升网站性能和用户体验有相对了解。<br />
-                            9. 了解PHP/nodejs等后台语言；了解SVN管理工具、Git管理工具；了解Grunt/Gulp等前端自动化工具。<br />
-                            10. 对使用CSS3提升用户体验有浓厚兴趣，喜欢使用CSS3解决过去JavaScript达到的效果，熟悉移动端常用的布局以及开发技巧。<br />
-            
-                        </div>
-                        
-                    </div>
-                </div>
+            <div class="limit clear">
+            	<a href="javascript:;" target="_blank" class="audi">
+                	<span class="timer"><p>还剩03天12时</p></span>
+                    <i class="model clear">
+                    	<p class="fl">奥迪A4L 2013款 35 TFSI 自动</p>
+                        <span class="fl">21.90万</span>
+                    </i>
+                </a>
+            	<a href="javascript:;" target="_blank" class="aodi">
+                	<span class="timer_2"><p>还剩02天1时</p></span>
+                    <i class="type clear">
+                    	<p class="fl">奥迪A4L 2013款 35 TFSI 自动</p>
+                        <span class="fr">21.90万</span>
+                    </i>
+                </a>
+            	<a href="javascript:;" target="_blank" class="aodi bmw">
+                	<span class="timer_2"><p>还剩01天12时</p></span>
+                    <i class="type clear">
+                    	<p class="fl">宝马X5(进口) 2014豪华型</p>
+                        <span class="fr">21.90万</span>
+                    </i>
+                </a>
             </div>
-            <div class="among">
-                <div class="shutA"></div>
-                  <div>
-                    <h2>//Personal Resume</h2>
-                    <div class="cent">
-                        <div class="cle">
-                            2011年9月——2015年7月:<br />&nbsp;&nbsp;重庆理工大学<br />
-                            2015年08月——2016年6月:<br />&nbsp;&nbsp;北京爱子欣网络科技有限公司
-                        </div>
-                        <div class="cri"><img src="psd/2.jpg" /></div>
-                    </div>
-                </div>
+        </section>
+    <!--车友活动-->
+    	<section class="car_friend clear">
+        	<div class="text fl">
+            	<h5>车友活动</h5>
+                <p>时间:2016年8月15日8:30</p>
+				<p>地点:石家庄跃进路与谈固大街交口</p>
+				<p>活动对象:去买油会员</p>
             </div>
-            <div class="among">
-                <div class="shutA"></div>
-                  <div>
-                    <h2>//Contact Me</h2>
-                    <div class="cent">
-                        <div class="cle">
-                            联系电话：18101357950
-                            QQ:737148499<br />
-                            Email ：itmengxi@sina.com<br />
-                            住址：北京市朝阳区
-            				个人网站：https://itmengxi0624.github.io
-                        </div>
-                        <div class="cri"><img src="psd/wali.jpg" /></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="matterCont">
-            <div class="shut"></div>
-            <div id="hc">
-                <h2>//MY WORKS</h2>
-                <div class="cent clearfix">
-                    <div class="demo fl" id="demo1">
-                    	<span>美丽说</span>
-                    	<img src="psd/meilishuo.png">
-                    </div>
-                    <div class="demo fl" id="demo2">
-                    	<span>小米</span>
-                    	<img src="psd/mi.png">
-                    </div>
-                    <div class="demo fl" id="demo3">
-                    	<span>优酷</span>
-                    	<img src="psd/youku.png">
-                    </div>
-                    <div class="demo fl" id="demo4">
-                    	<span>爱奇艺</span>
-                    	<img src="psd/aiqiyi.png">
-                    </div>
-                    <div class="demo fl" id="demo5">
-                    	<span>淘宝</span>
-                    	<img src="psd/taobao.png">
-                    </div>
-                    <div class="demo fl" id="demo6">
-                    	<span>灵魂回响</span>
-                    	<img src="psd/changyou.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="matterCont">
-            <div class="shut"></div>
-            <div id="js">
-                <h2>//MY WORKS</h2>
-                <div class="cent clearfix">
-                    <div class="demo fl" id="js-demo1">
-                    	<span>苹果菜单</span>
-                    	<img src="psd/apple.jpg">
-                    </div>
-                    <div class="demo fl" id="js-demo2">
-                    	<span>网易幻灯片</span>
-                    	<img src="psd/slide.png">
-                    </div>
-                    <div class="demo fl" id="js-demo3">
-                    	<span>淘宝幻灯片</span>
-                    	<img src="psd/tb-slide.png">
-                    </div>
-                    <div class="demo fl" id="js-demo4">
-                    	<span>圆球环绕</span>
-                    	<img src="psd/around.png">
-                    </div>
-                    <div class="demo fl" id="js-demo5">
-                    	<span>放大镜效果</span>
-                    	<img src="psd/timg.png">
-                    </div>
-                    <div class="demo fl" id="js-demo6">
-                    	<span>分页展示</span>
-                    	<img src="psd/separate.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="matterCont">
-            <div class="shut"></div>
-             <div>
-                <h2>//MY WORKS</h2>
-                <div class="cent clearfix">
-                    <div class="demo fl" id="h5c3-demo1">
-                    	<span>3D盒子</span>
-                    	<img src="psd/box.png">
-                    </div>
-                    <div class="demo fl" id="h5c3-demo2">
-                    	<span>图片爆炸</span>
-                    	<img src="psd/boom.png">
-                    </div>
-                    <div class="demo fl" id="h5c3-demo3">
-                    	<span>3D图片环绕</span>
-                    	<img src="psd/around2.png">
-                    </div>
-                    <div class="demo fl" id="h5c3-demo4">
-                    	<span>图片翻书效果</span>
-                    	<img src="psd/books.png">
-                    </div>
-                    <div class="demo fl" id="h5c3-demo5">
-                    	<span>图片颗粒翻转</span>
-                    	<img src="psd/flip.png">
-                    </div>
-                    <div class="demo fl" id="h5c3-demo6">
-                    	<span>文字阴影</span>
-                    	<img src="psd/projection.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="matterCont">
-            <div class="shut"></div>
-               <div>
-                <h2>//MY WORKS</h2>
-                <div class="cent">
-					<div id="c1">
-                    	<span>捕鱼达人</span>
-                    	<img src="psd/fish.png">
-                    </div>             
-               	</div>
-            </div>
-        </div>
-    </div>
-    <div id="clock" class="date">
-        <div class="time" id="time">
-            <img class="num" src="images/0.png" alt="0" />
-            <img class="num" src="images/0.png" alt="0" />
-            <img src="images/sign.png" alt="sign" />
-            <img class="num" src="images/0.png" alt="0" />
-            <img class="num" src="images/0.png" alt="0" />
-            <img src="images/sign.png" alt="sign" />
-            <img class="num" src="images/0.png" alt="0" />
-            <img class="num" src="images/0.png" alt="0" />
-        </div>
-    </div>
-</div>
-
+            <a href="javascript:;" target="_blank" class="fr activity">
+            	<i></i>
+                <p>8月车友会活动</p>
+				<p>盛大开幕</p>
+            </a>
+        </section>
+    <!--商品展示-->
+    	<section class="product_show">
+        	<h3>商品展示</h3>
+            <ul class="clear">
+            	<li>
+                	<a href="javascript:;" target="_blank"></a>
+                    <p>奥迪A4L 2013 款 35 TFSI 自动</p>
+                    <span>￥21.90万</span>
+                </li>
+            	<li>
+                	<a href="javascript:;" target="_blank" class="benchi"></a>
+                    <p>奥迪A4L 2013 款 35 TFSI 自动</p>
+                    <span>￥21.90万</span>
+                </li>
+            	<li>
+                	<a href="javascript:;" target="_blank" class="benz"></a>
+                    <p>奥迪A4L 2013 款 35 TFSI 自动</p>
+                    <span>￥21.90万</span>
+                </li>
+            	<li>
+                	<a href="javascript:;" target="_blank" class="beiqi"></a>
+                    <p>奥迪A4L 2013 款 35 TFSI 自动</p>
+                    <span>￥21.90万</span>
+                </li>
+            </ul>
+        </section>
+	</div>
+<script>
+	$(document).ready(function(){
+		new Swiper('.swiper-container',{
+			pagination:'.swiper-pagination',
+			paginationElement : 'span',
+			autoplayDisableOnInteraction : false,
+			autoplay:1500,
+			loop:true
+		});
+	});      
+</script>
 </body>
 </html>
