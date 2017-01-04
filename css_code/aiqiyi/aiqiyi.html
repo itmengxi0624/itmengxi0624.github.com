@@ -1,0 +1,2195 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/base.css" />
+<style>
+/*header*/
+.header{ min-width:980px; overflow:hidden;}
+.hd_banner img{ margin-left:-260px;}
+.header_in{ position:relative;}
+.header_in .hd_nav{ position:absolute;top:10px; right:0; line-height:30px;}
+.header_in .hd_nav input{ width:220px; height:28px; border:1px solid #fff; border-color:rgba(255,255,255,0.5); padding-left:9px; color:#fff; border-right:none;}
+.header_in .hd_nav .search i{ width:36px; height:30px; background:url(img/sprite.png) 0 -15px; margin-right:38px;}
+.header_in .hd_nav a{ color:#e5e5e5; margin-left:10px;}
+.header_in .nav_word i{ width:0; height:0; border:5px solid transparent; border-top:5px solid #e4e4e4; margin-top:14px; margin-left:3px;}
+.header_in .nav_word b{ width:14px; height:12px; background:url(img/sprite.png); margin-top:10px; margin-right:3px;}
+.header_in .hd_msg{ width:230px; height:354px; background:url(img/site-focuslist_bg.png); position:absolute; bottom:0; right:-10px; line-height:34px; padding-top:17px; padding-left:17px;}
+.header_in .hd_msg a{ color:#ccc; width:204px; padding-left:8px;}
+.header_in .hd_msg .cur,.header_in .hd_msg a:hover{background:#699f00; color:#fff;}
+/*navbox*/
+.navbox{ min-width:980px; background:#010101; height:98px; padding-top:8px; margin-bottom:25px;}
+.nav{ border:1px solid #688a00; height:75px; border-radius:6px; padding-top:7px; padding-bottom:6px; width:978px;}
+h1{ margin-left:17px; margin-top:11px;}
+h1 a{ background:url(img/logo.png); width:107px; height:35px; text-indent:-999em; margin-left:1px;}
+h1 i{ display:block; width:110px; height:14px; background:url(img/logoyxpz_new.png); margin-top:4px;}
+.nav li{ height:75px; line-height:25px; background:url(img/line.png) no-repeat right; float:left; padding-left:17px;}
+.nav li a{ color:#ccc; float:left;}
+.nav .list1{ width:40px;}
+.nav .list2{ width:98px;}
+.nav .list3{ width:80px;}
+.nav .list4{ width:168px;}
+.nav .list5{ width:164px;}
+.nav .list a{ width:50%;}
+.nav .last{ background:none;}
+.nav .last span{ color:#e6b224;}
+/*today_focus*/
+.focus{ margin-bottom:38px;}
+.focus_l{ width:380px;}
+.focus_l .hd{ border-bottom:2px solid #85ba4d}
+.focus_l .hd h2{ line-height:40px; font-weight:normal; font-size:24px; color:#699f00; margin-right:8px;}
+.focus_l .hd a{ line-height:36px; color:#699f00; margin-top:4px;}
+.focus_l .hd span{ width:64px; height:24px; line-height:22px; border:1px solid #e9e9e9; border-radius:9px; margin-top:5px;}
+.focus_l .hd i{ display:inline-block; width:14px; height:14px; background:url(img/sprite.png) -40px -30px; margin:4px 6px 0 8px;}
+.focus_l .text{ padding-top:22px;}
+.focus_l .text h3 a{ font-size:20px; line-height:20px;font-weight:normal; margin-bottom:17px; text-align:center;}
+.focus .text p{ margin-bottom:16px;}
+.focus .text p a{ font-size:16px; line-height:16px; margin-right:10px;}
+.focus .text p i{ width:13px; height:13px; background:url(img/sprite.png) -140px -150px; margin-top:2px; margin-right:8px;}
+.focus_l .pic_msg{ padding-top:2px;}
+.pic_msg a{ width:180px; height:136px;}
+.pic_msg a p{ line-height:34px; background:#f2f2f2; border-bottom:1px solid #ebebeb; text-align:center;}
+.focus_m{ width:380px;}
+.focus_m .big_pic{ position:relative; margin-bottom:24px;}
+.focus_m .big_pic .info{ position:absolute; bottom:0; left:0; width:380px; height:40px; background:rgba(0,0,0,0.5); color:#fff; line-height:40px;}
+.focus_m .big_pic .info i{ width:32px; height:27px; background:url(img/sprite.png) 0 -45px; margin:7px 12px 0 7px;}
+/*variety*/
+.variety{ margin-bottom:12px;}
+.variety_l{ width:780px;}
+.items .hd{ border-bottom:2px solid #85ba4d;}
+.items .hd .title{ color:#699f00; line-height:45px;}
+.items .hd i{ width:15px; height:25px; background:url(img/sprite.png) 0 -170px; margin-top:12px; margin-right:5px;}
+.items .hd .title h2{ font-size:27px; font-weight:normal;}
+.items .hd .title span{ line-height:12px; margin-top:23px; margin-left:18px;}
+.items .hd .it_nav{ line-height:14px; margin-top:24px; margin-left:34px;}
+.items .hd .it_nav span{ width:14px; height:14px; background:url(img/sprite.png) -20px 0; margin:0 8px;}
+.items .hd .banner_s{ margin-top:14px;}
+.items .con_l{ position:relative;}
+.items .con_l .info{ width:375px; height:47px; background:#f2f2f2; border-bottom:1px solid #ebebeb; padding-left:5px; line-height:20px; padding-top:7px;}
+.items .con_l .info span{ color:#999;}
+.items .con_l .icon1{ position:absolute; top:0; left:0; background:url(img/icon-today.png); width:125px; height:45px;}
+.items .icon2{ position:absolute; top:0; right:0; background:url(img/sprite.png) -83px -75px; width:39px; height:39px;}
+.items .icon3{ position:absolute; bottom:58px; left:4px; width:42px; height:16px; color:#fff; text-align:center; line-height:16px; background:rgba(0,0,0,0.5);}
+.items .icon4{ position:absolute; bottom:58px; right:4px; width:54px; height:16px; color:#fff; text-align:center; line-height:16px; background:rgba(0,0,0,0.5);}
+.items .con_r{ width:400px;}
+.items .con_r li{ margin-left:20px;}
+.items .con_r a{ position:relative;}
+.items .pic_s .info{ width:175px; height:46px; background:#f2f2f2; border-bottom:1px solid #ebebeb; padding-left:5px; line-height:20px; padding-top:7px;}
+.items .pic_s .info span{ color:#999;line-height:20px;}
+.variety_r{ width:180px;}
+.var_msg{ border-bottom:1px solid #ebebeb; background:#f2f2f2; height:324px;}
+.var_msg .txt{ font-size:14px; line-height:37px; border-bottom:1px dotted #ccc; margin-bottom:13px; text-align:center;}
+.var_msg ul li{ margin-bottom:20px; line-height:14px; font-size:14px; margin-left:10px;}
+.var_msg ul li i{ width:6px; height:6px; background:url(img/sprite.png) -170px -30px; margin-top:5px; margin-right:5px;}
+/*runningman*/
+.run .run_hd{ border-bottom:1px solid #e1e1e1; margin-bottom:15px;}
+.run .run_hd h2{ font-size:20px; color:#699f00; line-height:43px;}
+.run .run_hd a{ color:#699f00; line-height:12px; margin-top:18px;}
+.run .run_hd span{ width:33px; height:19px; color:#fff; line-height:19px; background:#ff6d34; text-align:center; border-radius:5px; border-bottom-left-radius:0; margin:13px 12px 0 4px;}
+.run .con_r{ width:980px;}
+.run .con_r .first{ margin-left:0;}
+.run .pic_s .info .xinxi{ width:54px; line-height:19px; border:1px solid #e7e7e7; background:#fff; color:#699f00; padding:0 3px;}
+/*脱口秀*/
+.talk_show h2{ margin-right:10px;}
+.talk_show .con_r{ margin-bottom:50px;}
+/*banner1*/
+.banner1{ margin-bottom:40px;}
+.yule .con_r{ width:600px;}
+/*猜你喜欢*/
+.yourlike .user_c{ width:180px; height:155px; font-size:22px; color:#fff; background:#76b300; box-shadow:0 0 15px #629205 inset; text-align:center; line-height:155px;}
+/*banner2推广广告*/
+.banner2 h4{ width:84px; line-height:22px; background:#8ac024; color:#fff; font-size:12px; font-weight:normal; text-align:center; border-radius:3px 3px 0 0;}
+.banner2 .ban_box{ height:140px; width:982px; border:1px solid #8ac024; padding:10px 0;}
+.banner2 .btn1{ width:26px; height:140px; background:url(img/banner_btn1.png);}
+.banner2 .btn2{ width:26px; height:140px; background:url(img/banner_btn2.png);}
+/*电影*/
+.movie{ margin-bottom:10px;}
+.movie .con_r{ width:780px;}
+.movie .con_r .first{ margin-left:0;}
+.list_box{ height:290px; overflow:hidden;}
+.list_box li{ line-height:20px; margin-bottom:13px;}
+.list_box li span{ width:20px; height:20px; background:#9d9d9d; color:#fff; text-align:center; border-radius:4px; margin-right:5px;}
+.list_box li .hot{ background:#73ae00;}
+.list_box li i{ width:7px; height:8px; background:url(img/sprite.png) -34px -150px; margin-top:7px;}
+.list_box li .up{ background-position:0 -150px;}
+.list_box li .down{ background-position:-17px -150px;}
+/*微电影*/
+.micro_film{ width:580px;}
+.micro_film .con_r{ width:580px;}
+.pianhua .con_r{ width:380px;}
+.micro_film .hd .title h2{ font-size:20px;}
+.pianhua .hd .title h2{ font-size:20px;}
+.micro .pic_s .info{ padding-top:0; line-height:34px; height:34px;}
+.micro .pic_b .info{ padding-top:0; line-height:34px; height:34px;}
+.micro .icon3{ bottom:38px;}
+.micro .icon4{ bottom:38px;}
+.pianhua{ width:380px;}
+/*电视剧*/
+.tv .list_box{ height:272px;}
+.tv .list_box li{ margin-bottom:16px;}
+/*anime*/
+.anime .left{ width:580px;}
+.anime .con_r{ width:180px;}
+.anime .con_r li{ margin-left:0;}
+.sport .con_r{ width:380px;}
+.sport .fashion{ width:180px;}
+/*原创*/
+.yc_r ul{ height:312px; border-top:1px solid #ebebeb; border-bottom:1px solid #ebebeb; background:#f2f2f2; padding-left:10px; padding-top:10px;}
+.yc_r ul li{ margin-bottom:12px;}
+.yc_r ul .text{ margin-left:8px; line-height:20px;}
+.yc_r ul .dingyue{ display:block; width:68px; line-height:22px; color:#fff; text-align:center; background:#699f00; border-radius:3px;}
+.game{ margin-bottom:45px;}
+/*频道*/
+.pindao{ margin-bottom:51px;}
+.pindao li a{ position:relative;}
+.pindao_msg{ width:180px; height:63px; position:absolute; bottom:0; left:0;}
+.pindao_msg .info{ line-height:24px; background:rgba(0,0,0,0.5); color:#fff; padding-left:5px;}
+.pindao_msg .more{ background:#8ac024; border-bottom:5px solid #6ba400;}
+.pindao_msg .more h2{ font-size:22px; color:#fff; line-height:34px; font-weight:normal; padding-left:22px; margin-right:8px;}
+.pindao_msg .more span{ color:#fff; line-height:28px; margin-top:6px;}
+/*banner4*/
+.banner4{ position:relative; border-top:1px solid #000; border-bottom:1px solid #000; margin-bottom:45px;}
+.banner4 span{ position:absolute; top:0; left:0; background:rgba(0,0,0,0.5); width:35px; line-height:19px; text-align:center; color:#fff;}
+/*合作伙伴*/
+.partner{  width:958px;height:182px; background:#f7f7f7; border:1px solid #e7e7e7; padding-left:20px;margin-bottom:50px;}
+.partner .hd{ margin-bottom:18px;}
+.partner h2{ line-height:22px; font-size:22px; font-weight:normal; color:#333; margin-right:16px;}
+.partner .hd a{ margin-top:9px; line-height:12px;}
+.partner .left{ width:469px; border-right:1px solid #e7e7e7; padding-top:22px; height:160px;}
+.partner .friend a{ width:80px; line-height:12px; float:left; margin-bottom:16px;}
+.partner .right{ width:472px; padding-top:22px; height:160px; padding-left:16px;}
+.partner .dongtai a{ width:190px; line-height:12px; float:left; margin-bottom:16px;}
+/*footer*/
+.footer{ min-width:980px; border-top:1px solid #ccc;}
+.footer_in{ padding-top:19px;}
+.footer_in .link{ margin-bottom:16px; text-align:center;}
+.footer_in .link a{ display:inline; margin:0 10px; line-height:12px;}
+.cellnumb{ color:#666; margin-bottom:16px; text-align:center;}
+.cellnumb span{ margin:0 30px;}
+.end a{ line-height:12px; margin-bottom:16px; color:#666;}
+.end .list1{ width:144px;}
+.end .list2{ width:133px;}
+.end .list3{ width:191px;}
+.end .list4{ width:226px;}
+.end .list5{ width:286px;}
+.copyright{ text-align:center; color:#666; margin-bottom:28px;}
+</style>
+</head>
+
+<body>
+	<!--header-->
+	<div class="header">
+    	<div class="header_in w">
+            <a href="#" class="hd_banner">
+                <img src="img/banner.jpg" />
+            </a>
+            <div class="hd_nav">
+            	<div class="search fl clearfix">
+                    <input type="text" value="大好时光" class="fl" />
+                    <i class="fl"></i>
+                </div>
+            	<div class="nav_word fl clearfix">
+                	<a href="#" class="fl">登录</a>
+                	<a href="#" class="fl">注册</a>
+                	<a href="#" class="fl">开通VIP</a>
+                	<a href="#" class="fl clearfix">
+                    	<b class="fl"></b>
+                    	<span class="fl">上传</span>
+                        <i class="fl"></i>
+                    </a>
+                	<a href="#" class="fl">下载</a>
+                	<a href="#" class="fl clearfix">
+                    	<span class="fl">消息</span>
+                        <i class="fl"></i>
+                    </a>
+                    <a href="#" class="fl clearfix">
+                    	<span class="fl">播放记录</span>
+                        <i class="fl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hd_msg">
+            	<a href="#">北上广不相信眼泪：职场爱情</a>
+            	<a href="#">北上广不相信眼泪：职场爱情</a>
+            	<a href="#">北上广不相信眼泪：职场爱情</a>
+            	<a href="#">北上广不相信眼泪：职场爱情</a>
+            	<a href="#">北上广不相信眼泪：职场爱情</a>
+            	<a href="#">北上广不相信眼泪：职场爱情</a>
+            	<a href="#">北上广不相信眼泪：职场爱情</a>
+            	<a href="#" class="cur">北上广不相信眼泪：职场爱情</a>
+            	<a href="#">北上广不相信眼泪：职场爱情</a>
+            	<a href="#">北上广不相信眼泪：职场爱情</a>
+            </div>
+        </div>
+    </div>
+    <!--nav-->
+    <div class="navbox">
+    	<div class="nav w clearfix">
+        	<h1 class="logo fl">
+            	<a href="#">爱奇艺</a>
+                <i></i>
+            </h1>
+            <ul class="fr clearfix">
+            	<li class="list1 clearfix">
+                	<a href="#">娱乐</a>
+                	<a href="#">体育</a>
+                	<a href="#">资讯</a>
+                </li>
+            	<li class="list2 list clearfix">
+                	<a href="#">电影</a>
+                	<a href="#">电视剧</a>
+                	<a href="#">片花</a>
+                	<a href="#">综艺</a>
+                	<a href="#">微电影</a>
+                	<a href="#">脱口秀</a>
+                </li>
+            	<li class="list3 list clearfix">
+                	<a href="#">娱乐</a>
+                	<a href="#">体育</a>
+                	<a href="#">资讯</a>
+                	<a href="#">娱乐</a>
+                	<a href="#">体育</a>
+                	<a href="#">资讯</a>
+                </li>
+            	<li class="list3 list clearfix">
+                	<a href="#">娱乐</a>
+                	<a href="#">体育</a>
+                	<a href="#">资讯</a>
+                	<a href="#">娱乐</a>
+                	<a href="#">体育</a>
+                	<a href="#">资讯</a>
+                </li>
+            	<li class="list2 list clearfix">
+                	<a href="#">电影</a>
+                	<a href="#">电视剧</a>
+                	<a href="#">片花</a>
+                	<a href="#">综艺</a>
+                	<a href="#">微电影</a>
+                	<a href="#">脱口秀</a>
+                </li>
+            	<li class="list4 list clearfix">
+                	<a href="#">电影</a>
+                	<a href="#">电视剧</a>
+                	<a href="#">全网影视</a>
+                	<a href="#">直播中心</a>
+                	<a href="#">爱奇艺搜索</a>
+                	<a href="#">爱奇艺出品</a>
+                </li>
+            	<li class="list5 list clearfix last">
+                	<a href="#">电影</a>
+                	<a href="#">电视剧</a>
+                	<a href="#">全网影视</a>
+                	<a href="#"><span>VIP</span>会员</a>
+                	<a href="#">爱奇艺搜索</a>
+                	<a href="#">爱奇艺出品</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--今日焦点-->
+    <div class="focus w clearfix">
+    	<div class="focus_l fl marr_20">
+        	<div class="hd clearfix">
+            	<h2 class="fl">今日焦点</h2>
+                <a href="#" class="fl">更多&gt;</a>
+                <span class="fr">
+                	<i></i>独播
+                </span>
+            </div>
+            <div class="text">
+            	<h3><a href="#">中央军委原副主席郭伯雄被开除党籍</a></h3>
+                <div>
+                    <p class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">北京申办2022年冬奥会陈述回放</a>
+                        <a href="#" class="fl">结果傍晚揭晓</a>
+                    </p>
+                    <p class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">北京申办2022年冬奥会陈述回放</a>
+                        <a href="#" class="fl">结果傍晚揭晓</a>
+                    </p>
+                    <p class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">北京申办2022年冬奥会陈述回放</a>
+                        <a href="#" class="fl">结果傍晚揭晓</a>
+                    </p>
+                    <p class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">北京申办2022年冬奥会陈述回放</a>
+                        <a href="#" class="fl">结果傍晚揭晓</a>
+                    </p>
+                    <p class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">北京申办2022年冬奥会陈述回放</a>
+                        <a href="#" class="fl">结果傍晚揭晓</a>
+                    </p>
+                    <p class="clearfix">
+                        <i class="fl"></i>
+                        <a href="#" class="fl">北京申办2022年冬奥会陈述回放</a>
+                        <a href="#" class="fl">结果傍晚揭晓</a>
+                    </p>
+                </div>
+                <div class="pic_msg clearfix">
+                    <a href="#" class="fl">
+                        <img src="img/img.png" />
+                        <p>牛人冲浪板上玩双人体操</p>
+                    </a>
+                    <a href="#" class="fr">
+                        <img src="img/img.png" />
+                        <p>牛人冲浪板上玩双人体操</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    	<div class="focus_m fl">
+        	<a href="#" class="big_pic">
+            	<img src="img/img.jpg" />
+                <div class="info clearfix">
+                	<i class="fl"></i>
+                    <p class="fl">韩新女团高中庆典表演"掀裙舞"遭民众抨击</p>
+                </div>
+            </a>
+            <div class="text">
+                <p class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">北京申办2022年冬奥会陈述回放</a>
+                    <a href="#" class="fl">结果傍晚揭晓</a>
+                </p>
+                <p class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">北京申办2022年冬奥会陈述回放</a>
+                    <a href="#" class="fl">结果傍晚揭晓</a>
+                </p>
+                <p class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">北京申办2022年冬奥会陈述回放</a>
+                    <a href="#" class="fl">结果傍晚揭晓</a>
+                </p>
+                <p class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">北京申办2022年冬奥会陈述回放</a>
+                    <a href="#" class="fl">结果傍晚揭晓</a>
+                </p>
+                <p class="clearfix">
+                    <i class="fl"></i>
+                    <a href="#" class="fl">北京申办2022年冬奥会陈述回放</a>
+                    <a href="#" class="fl">结果傍晚揭晓</a>
+                </p>
+            </div>
+        </div>
+    	<div class="focus_r pic_msg fr">
+            <a href="#" class="marb_15">
+                <img src="img/img.png" />
+                <p>牛人冲浪板上玩双人体操</p>
+            </a>
+            <a href="#" class="marb_15">
+                <img src="img/img.png" />
+                <p>牛人冲浪板上玩双人体操</p>
+            </a>
+            <a href="#">
+                <img src="img/img.png" />
+                <p>牛人冲浪板上玩双人体操</p>
+            </a>
+        </div>
+    </div>
+    <!--综艺variety-->
+    <div class="variety w items clearfix">
+    	<div class="variety_l fl">
+        	<div class="hd clearfix marb_25">
+            	<a href="#" class="clearfix fl title">
+                	<i class="fl"></i>
+                    <h2 class="fl">综艺</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+                <div class="fr clearfix banner_s">
+                	<a href="#" class="fl"><img src="img/banner_01.png" /></a>
+                	<a href="#" class="fl"><img src="img/banner_01.png" /></a>
+                </div>
+            </div>
+            <div class="con clearfix">
+            	<a href="#" class="con_l fl pic_b">
+                	<img src="img/img270.jpg" />
+                    <div class="info">
+                    	<p>我去上学啦</p>
+                        <span>钟汉良神助攻蒋劲夫 凯丽姐变运动健将</span>
+                    </div>
+                    <i class="icon1"></i>
+                    <i class="icon2"></i>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            	<ul class="con_r fl clearfix">
+                	<li class="fl marb_15">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/img.png" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl marb_15">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/img.png" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/img.png" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/img.png" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    	<div class="variety_r fr">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">精彩推荐</h2>
+                    <span class="fl">更多</span>
+                </a>
+            </div>
+            <div class="var_msg">
+            	<a href="#"><img src="img/img.png" /></a>
+                <a href="#" class="txt">报告教练：羽毛球终极战</a>
+                <ul>
+                	<li class="clearfix">
+                    	<i class="fl"></i>
+                    	<a href="#" class="fl">李小鹏庆生遭奥利抢镜</a>
+                    </li>
+                	<li class="clearfix">
+                    	<i class="fl"></i>
+                    	<a href="#" class="fl">李小鹏庆生遭奥利抢镜</a>
+                    </li>
+                	<li class="clearfix">
+                    	<i class="fl"></i>
+                    	<a href="#" class="fl">李小鹏庆生遭奥利抢镜</a>
+                    </li>
+                	<li class="clearfix">
+                    	<i class="fl"></i>
+                    	<a href="#" class="fl">李小鹏庆生遭奥利抢镜</a>
+                    </li>
+                	<li class="clearfix">
+                    	<i class="fl"></i>
+                    	<a href="#" class="fl">李小鹏庆生遭奥利抢镜</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--runningman-->
+    <div class="run w items marb_12">
+    	<div class="run_hd clearfix">
+            <h2 class="fl">奔跑吧兄弟第三季</h2>
+            <span class="fl">独播</span>
+            <a href="#" class="fl">进入专题&gt;</a>
+        </div>
+        <ul class="con_r clearfix">
+            <li class="fl first">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info clearfix">
+                    	<p>
+                            <span class="xinxi">正片回顾</span>
+                            钟汉良神助攻健将钟汉良神助攻健将
+                        </p>
+                    </div>
+                    <i class="icon2"></i>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info clearfix">
+                    	<p>
+                            <span class="xinxi">正片回顾</span>
+                            钟汉良神助攻健将钟汉良神助攻健将
+                        </p>
+                    </div>
+                    <i class="icon2"></i>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info clearfix">
+                    	<p>
+                            <span class="xinxi">正片回顾</span>
+                            钟汉良神助攻健将钟汉良神助攻健将
+                        </p>
+                    </div>
+                    <i class="icon2"></i>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info clearfix">
+                    	<p>
+                            <span class="xinxi">正片回顾</span>
+                            钟汉良神助攻健将钟汉良神助攻健将
+                        </p>
+                    </div>
+                    <i class="icon2"></i>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info clearfix">
+                    	<p>
+                            <span class="xinxi">正片回顾</span>
+                            钟汉良神助攻健将钟汉良神助攻健将
+                        </p>
+                    </div>
+                    <i class="icon2"></i>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--脱口秀-->
+    <div class="run w items talk_show">
+    	<div class="run_hd clearfix">
+            <h2 class="fl">脱口秀</h2>
+            <a href="#" class="fl">更多&gt;</a>
+        </div>
+        <ul class="con_r clearfix">
+            <li class="fl first">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info clearfix">
+                    	<p>我去上学啦</p>
+                        <span>钟汉良神助攻健将</span>
+                    </div>
+                    <i class="icon2"></i>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info clearfix">
+                    	<p>我去上学啦</p>
+                        <span>钟汉良神助攻健将</span>
+                    </div>
+                    <i class="icon2"></i>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info clearfix">
+                    	<p>我去上学啦</p>
+                        <span>钟汉良神助攻健将</span>
+                    </div>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info clearfix">
+                    	<p>我去上学啦</p>
+                        <span>钟汉良神助攻健将</span>
+                    </div>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info clearfix">
+                    	<p>我去上学啦</p>
+                        <span>钟汉良神助攻健将</span>
+                    </div>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--banner-->
+    <a href="#" class="w banner1"><img src="img/banner1.jpg" /></a>
+    <!--娱乐-->
+    <div class="w items clearfix yule marb_40">
+        <div class="hd clearfix marb_25">
+            <a href="#" class="clearfix fl title">
+                <i class="fl"></i>
+                <h2 class="fl">娱乐</h2>
+                <span class="fl">更多&gt;</span>
+            </a>
+            <div class="it_nav fl">
+                <a href="#" class="fl">爱上超模第二季</a>
+                <span class="fl"></span>
+                <a href="#" class="fl">爱上超模第二季</a>
+                <span class="fl"></span>
+                <a href="#" class="fl">爱上超模第二季</a>
+                <span class="fl"></span>
+                <a href="#" class="fl">爱上超模第二季</a>
+            </div>
+            <div class="fr clearfix banner_s">
+                <a href="#" class="fl"><img src="img/banner_01.png" /></a>
+                <a href="#" class="fl"><img src="img/banner_01.png" /></a>
+            </div>
+        </div>
+        <div class="con clearfix">
+            <a href="#" class="con_l fl pic_b">
+                <img src="img/img270.jpg" />
+                <div class="info">
+                    <p>我去上学啦</p>
+                    <span>钟汉良神助攻蒋劲夫 凯丽姐变运动健将</span>
+                </div>
+                <i class="icon1"></i>
+                <i class="icon2"></i>
+                <span class="icon3">1080P</span>
+                <span class="icon4">11-09期</span>
+            </a>
+            <ul class="con_r fl clearfix">
+                <li class="fl marb_15">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <div class="info">
+                            <p>我去上学啦活动顺利康复后来看撒娇的</p>
+                        </div>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl marb_15">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <div class="info">
+                            <p>我去上学啦活动顺利康复后来看撒娇的</p>
+                        </div>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl marb_15">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦活动顺利康复后来看撒娇的</p>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <div class="info">
+                            <p>我去上学啦活动顺利康复后来看撒娇的</p>
+                        </div>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <div class="info">
+                            <p>我去上学啦活动顺利康复后来看撒娇的</p>
+                        </div>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦活动顺利康复后来看撒娇的</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--猜你喜欢-->
+    <div class="w items clearfix yourlike run marb_40">
+        <div class="hd clearfix marb_25">
+            <a href="#" class="clearfix fl title">
+                <i class="fl"></i>
+                <h2 class="fl">猜你喜欢</h2>
+                <span class="fl">更多&gt;</span>
+            </a>
+            <div class="it_nav fl">
+                <a href="#" class="fl">爱上超模第二季</a>
+                <span class="fl"></span>
+                <a href="#" class="fl">爱上超模第二季</a>
+                <span class="fl"></span>
+                <a href="#" class="fl">爱上超模第二季</a>
+            </div>
+        </div>
+        <ul class="con_r fl clearfix">
+            <li class="fl marb_15 first">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info">
+                        <p>我去上学啦</p>
+                        <span>钟汉良神助攻蒋将</span>
+                    </div>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl marb_15">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info">
+                        <p>我去上学啦</p>
+                        <span>钟汉良神助攻蒋将</span>
+                    </div>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl marb_15">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info">
+                        <p>我去上学啦</p>
+                        <span>钟汉良神助攻蒋将</span>
+                    </div>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl marb_15">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info">
+                        <p>我去上学啦</p>
+                        <span>钟汉良神助攻蒋将</span>
+                    </div>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl marb_15">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info">
+                        <p>我去上学啦</p>
+                        <span>钟汉良神助攻蒋将</span>
+                    </div>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl first">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info">
+                        <p>我去上学啦</p>
+                        <span>钟汉良神助攻蒋将</span>
+                    </div>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info">
+                        <p>我去上学啦</p>
+                        <span>钟汉良神助攻蒋将</span>
+                    </div>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info">
+                        <p>我去上学啦</p>
+                        <span>钟汉良神助攻蒋将</span>
+                    </div>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="#" class="pic_s">
+                    <img src="img/img.png" />
+                    <div class="info">
+                        <p>我去上学啦</p>
+                        <span>钟汉良神助攻蒋将</span>
+                    </div>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            </li>
+            <li class="fl">
+                <a href="#" class="user_c">进入个人中心&gt;</a>
+            </li>
+        </ul>
+    </div>
+    <!--banner2-->
+    <div class="banner2 w marb_40">
+    	<h4>推广广告</h4>
+        <div class="ban_box clearfix">
+        	<div class="btn1 fl"></div>
+            <a href="#" class="fl marr_20"><img src="img/banner2.jpg" /></a>
+            <a href="#" class="fl marr_20"><img src="img/banner2.jpg" /></a>
+            <a href="#" class="fl marr_20"><img src="img/banner2.jpg" /></a>
+            <a href="#" class="fl marr_20"><img src="img/banner2.jpg" /></a>
+            <a href="#" class="fl"><img src="img/banner2.jpg" /></a>
+        	<div class="btn2 fl"></div>
+        </div>
+    </div>
+    <!--电影movie-->
+    <div class="w items clearfix movie">
+    	<div class="variety_l fl">
+        	<div class="hd clearfix marb_25">
+            	<a href="#" class="clearfix fl title">
+                	<i class="fl"></i>
+                    <h2 class="fl">电影</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <div class="con clearfix">
+            	<ul class="con_r fl clearfix">
+                	<li class="fl marb_15 first">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                        </a>
+                    </li>
+                	<li class="fl marb_15">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                        </a>
+                    </li>
+                	<li class="fl marb_15">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                        </a>
+                    </li>
+                	<li class="fl marb_15">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                        </a>
+                    </li>
+                	<li class="fl first">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                        </a>
+                    </li>
+                	<li class="fl">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                        </a>
+                    </li>
+                	<li class="fl">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                        </a>
+                    </li>
+                	<li class="fl">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    	<div class="variety_r fr">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">电影榜</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+            </div>
+            <ul class="list_box marb_15">
+                <li class="clearfix">
+                    <span class="fl hot">1</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl hot">2</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl hot">3</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr up"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">4</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr down"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">5</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">6</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">7</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">8</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">9</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+            </ul>
+            <a href="#" class="pic_s">
+                <img src="img/movie1.jpg" />
+                <div class="info">
+                    <p>我去上学啦</p>
+                    <span>钟汉良神助攻健将</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!--微电影-->
+    <div class="run w items clearfix micro marb_40">
+    	<div class="micro_film fl">
+            <div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <h2 class="fl">微电影</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                    <a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                    <a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <ul class="con_r clearfix">
+                <li class="fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦</p>
+                        <span class="icon3">1080P</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦</p>
+                        <span class="icon3">1080P</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦</p>
+                        <span class="icon3">1080P</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    	<div class="pianhua fr">
+            <div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <h2 class="fl">片花</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                    <a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                    <a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <ul class="con_r clearfix">
+                <li class="fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦</p>
+                        <span class="icon3">1080P</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦</p>
+                        <span class="icon3">1080P</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--电视剧-->
+    <div class="w items clearfix movie marb_40 tv">
+    	<div class="variety_l fl">
+        	<div class="hd clearfix marb_25">
+            	<a href="#" class="clearfix fl title">
+                	<i class="fl"></i>
+                    <h2 class="fl">电视剧</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <div class="con clearfix">
+            	<ul class="con_r fl clearfix micro">
+                	<li class="fl marb_15 first">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl marb_15">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl marb_15">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl marb_15">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl first">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/movie1.jpg" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    	<div class="variety_r fr micro">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">电视剧榜</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+            </div>
+            <ul class="list_box marb_15">
+                <li class="clearfix">
+                    <span class="fl hot">1</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl hot">2</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl hot">3</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr up"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">4</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr down"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">5</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">6</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">7</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+                <li class="clearfix">
+                    <span class="fl">8</span>
+                    <a href="#" class="fl">李小鹏庆抢镜</a>
+                    <i class="fr"></i>
+                </li>
+            </ul>
+            <a href="#" class="pic_s">
+                <img src="img/movie1.jpg" />
+                <p class="info">我去上学啦钟汉攻健将</p>
+            </a>
+        </div>
+    </div>
+    <!--banner3-->
+    <div class="banner2 w marb_40">
+    	<h4>推广广告</h4>
+        <div class="ban_box clearfix">
+        	<div class="btn1 fl"></div>
+            <a href="#" class="fl marr_20"><img src="img/banner2.jpg" /></a>
+            <a href="#" class="fl marr_20"><img src="img/banner2.jpg" /></a>
+            <a href="#" class="fl marr_20"><img src="img/banner2.jpg" /></a>
+            <a href="#" class="fl marr_20"><img src="img/banner2.jpg" /></a>
+            <a href="#" class="fl"><img src="img/banner2.jpg" /></a>
+        	<div class="btn2 fl"></div>
+        </div>
+    </div>
+    <!--动漫anime-->
+    <div class="w items clearfix movie marb_40 tv anime">
+    	<div class="fl left marr_20">
+        	<div class="hd clearfix marb_25">
+            	<a href="#" class="clearfix fl title">
+                	<i class="fl"></i>
+                    <h2 class="fl">动漫</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <div class="con clearfix micro">
+                <a href="#" class="con_l fl pic_b marr_20">
+                    <img src="img/img3.jpg" />
+                    <p class="info">我去上学啦钟汉攻健将</p>
+                    <i class="icon1"></i>
+                    <span class="icon3">1080P</span>
+                </a>
+                <ul class="con_r fl clearfix">
+                    <li class="marb_15">
+                        <a href="#" class="pic_s">
+                            <img src="img/img.png" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                            <span class="icon3">1080P</span>
+                            <span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="pic_s">
+                            <img src="img/img.png" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                            <span class="icon3">1080P</span>
+                            <span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    	<div class="variety_r fl micro marr_20">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">少儿</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+            </div>
+            <ul class="con_r fl ">
+                    <li class="marb_15">
+                        <a href="#" class="pic_s">
+                            <img src="img/img.png" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                            <span class="icon3">1080P</span>
+                            <span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="pic_s">
+                            <img src="img/img.png" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                            <span class="icon3">1080P</span>
+                            <span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                </ul>
+        </div>
+    	<div class="variety_r fl micro">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">教育</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+            </div>
+            <ul class="con_r fl clearfix">
+                    <li class="marb_15">
+                        <a href="#" class="pic_s">
+                            <img src="img/img.png" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                            <span class="icon3">1080P</span>
+                            <span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="pic_s">
+                            <img src="img/img.png" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                            <span class="icon3">1080P</span>
+                            <span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                </ul>
+        </div>
+    </div>
+    <!--体育sport-->
+    <div class="w items clearfix movie marb_40 tv sport">
+    	<div class="fl marr_20">
+        	<div class="hd clearfix marb_25">
+            	<a href="#" class="clearfix fl title">
+                	<i class="fl"></i>
+                    <h2 class="fl">体育</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <ul class="con_r fl clearfix micro">
+                <li class="marb_15 fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl marb_15">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    	<div class=" fl micro marr_20">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">音乐</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <ul class="con_r fl clearfix">
+                <li class="fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img4.jpg" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="marb_15 fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    	<div class="variety_r fl micro">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">时尚</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+            </div>
+            <ul class="con_r fl clearfix fashion">
+                    <li class="marb_15 first">
+                        <a href="#" class="pic_s">
+                            <img src="img/img.png" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                            <span class="icon3">1080P</span>
+                            <span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                    <li class="first">
+                        <a href="#" class="pic_s">
+                            <img src="img/img.png" />
+                            <p class="info">我去上学啦钟汉攻健将</p>
+                            <span class="icon3">1080P</span>
+                            <span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                </ul>
+        </div>
+    </div>
+    <!--母婴-->
+    <div class="w items clearfix movie marb_40 tv sport">
+    	<div class="fl marr_20">
+        	<div class="hd clearfix marb_25">
+            	<a href="#" class="clearfix fl title">
+                	<i class="fl"></i>
+                    <h2 class="fl">母婴</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <ul class="con_r clearfix micro">
+                <li class="marb_15 fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl marb_15">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    	<div class=" fl micro marr_20">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">生活</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <ul class="con_r clearfix">
+                <li class="marb_15 fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    	<div class="variety_r fl micro">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">健康</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+            </div>
+            <a href="#" class="pic_s">
+                <img src="img/img.png" />
+                <p class="info">我去上学啦钟汉攻健将</p>
+            </a>
+        </div>
+    </div>
+    <!--科技-->
+    <div class="w items clearfix movie marb_40 tv sport">
+    	<div class="fl marr_20">
+        	<div class="hd clearfix marb_25">
+            	<a href="#" class="clearfix fl title">
+                	<i class="fl"></i>
+                    <h2 class="fl">科技</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <ul class="con_r clearfix micro">
+                <li class="marb_15 fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl marb_15">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    	<div class=" fl micro marr_20">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">汽车</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <ul class="con_r clearfix">
+                <li class="marb_15 fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    	<div class="variety_r fl micro">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">财经</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+            </div>
+            <a href="#" class="pic_s">
+                <img src="img/img.png" />
+                <p class="info">我去上学啦钟汉攻健将</p>
+            </a>
+        </div>
+    </div>
+    <!--旅游-->
+    <div class="w items clearfix movie marb_40 tv sport">
+    	<div class="fl marr_20">
+        	<div class="hd clearfix marb_25">
+            	<a href="#" class="clearfix fl title">
+                	<i class="fl"></i>
+                    <h2 class="fl">旅游</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <ul class="con_r clearfix micro">
+                <li class="marb_15 fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl marb_15">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    	<div class=" fl micro marr_20">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">记录片</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上二季</a>
+                </div>
+            </div>
+            <ul class="con_r clearfix">
+                <li class="marb_15 fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦钟汉攻健将</p>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    	<div class="variety_r fl micro">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">军事</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+            </div>
+            <a href="#" class="pic_s">
+                <img src="img/img.png" />
+                <p class="info">我去上学啦钟汉攻健将</p>
+            </a>
+        </div>
+    </div>
+    <!--原创-->
+    <div class="variety w items clearfix">
+    	<div class="variety_l fl">
+        	<div class="hd clearfix marb_25">
+            	<a href="#" class="clearfix fl title">
+                	<i class="fl"></i>
+                    <h2 class="fl">原创</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+                <div class="fr clearfix banner_s">
+                </div>
+            </div>
+            <div class="con clearfix">
+            	<a href="#" class="con_l fl pic_b">
+                	<img src="img/img270.jpg" />
+                    <div class="info">
+                    	<p>我去上学啦</p>
+                        <span>钟汉良神助攻蒋劲夫 凯丽姐变运动健将</span>
+                    </div>
+                    <i class="icon1"></i>
+                    <i class="icon2"></i>
+                    <span class="icon3">1080P</span>
+                    <span class="icon4">11-09期</span>
+                </a>
+            	<ul class="con_r fl clearfix">
+                	<li class="fl marb_15">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/img.png" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl marb_15">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/img.png" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/img.png" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                	<li class="fl">
+                    	<a href="#" class="pic_s">
+                        	<img src="img/img.png" />
+                            <div class="info">
+                                <p>我去上学啦</p>
+                                <span>钟汉良神助攻健将</span>
+                    		</div>
+                    		<i class="icon2"></i>
+                            <span class="icon3">1080P</span>
+                    		<span class="icon4">11-09期</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    	<div class="variety_r fr yc_r">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">原创达人</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+            </div>
+            <ul>
+            	<li class="clearfix">
+                	<a href="#" class="fl"><img src="img/ycdr.jpg" /></a>
+                    <div class="fl text">
+                    	<a href="#">典型人视频</a>
+                        <span>2595人订阅</span>
+                        <span class="dingyue">+ 订阅</span>
+                    </div>
+                </li>
+            	<li class="clearfix">
+                	<a href="#" class="fl"><img src="img/ycdr.jpg" /></a>
+                    <div class="fl text">
+                    	<a href="#">典型人视频</a>
+                        <span>2595人订阅</span>
+                        <span class="dingyue">+ 订阅</span>
+                    </div>
+                </li>
+            	<li class="clearfix">
+                	<a href="#" class="fl"><img src="img/ycdr.jpg" /></a>
+                    <div class="fl text">
+                    	<a href="#">典型人视频</a>
+                        <span>2595人订阅</span>
+                        <span class="dingyue">+ 订阅</span>
+                    </div>
+                </li>
+            	<li class="clearfix">
+                	<a href="#" class="fl"><img src="img/ycdr.jpg" /></a>
+                    <div class="fl text">
+                    	<a href="#">典型人视频</a>
+                        <span>2595人订阅</span>
+                        <span class="dingyue">+ 订阅</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--搞笑-->
+    <div class="run w items clearfix micro marb_40">
+    	<div class="micro_film fl">
+            <div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <h2 class="fl">搞笑</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                    <a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                    <a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <ul class="con_r clearfix">
+                <li class="fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦</p>
+                        <span class="icon3">1080P</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦</p>
+                        <span class="icon3">1080P</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦</p>
+                        <span class="icon3">1080P</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    	<div class="pianhua fr">
+            <div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <h2 class="fl">片花</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                    <a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                    <a href="#" class="fl">爱上超模第二季</a>
+                </div>
+            </div>
+            <ul class="con_r clearfix">
+                <li class="fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦</p>
+                        <span class="icon3">1080P</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <p class="info">我去上学啦</p>
+                        <span class="icon3">1080P</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--游戏-->
+    <div class="w items clearfix run game">
+    	<div class="variety_l fl micro_film">
+        	<div class="hd clearfix marb_25">
+            	<a href="#" class="clearfix fl title">
+                	<i class="fl"></i>
+                    <h2 class="fl">游戏</h2>
+                    <span class="fl">更多&gt;</span>
+                </a>
+                <div class="it_nav fl">
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                    <span class="fl"></span>
+                	<a href="#" class="fl">爱上超模第二季</a>
+                </div>
+                <div class="fr clearfix banner_s">
+                </div>
+            </div>
+            <ul class="con_r fl clearfix">
+                <li class="fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <div class="info">
+                            <p>我去上学啦</p>
+                            <span>钟汉良神助攻健将</span>
+                        </div>
+                        <i class="icon2"></i>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <div class="info">
+                            <p>我去上学啦</p>
+                            <span>钟汉良神助攻健将</span>
+                        </div>
+                        <i class="icon2"></i>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <div class="info">
+                            <p>我去上学啦</p>
+                            <span>钟汉良神助攻健将</span>
+                        </div>
+                        <i class="icon2"></i>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    	<div class="variety_r fr pianhua">
+        	<div class="hd clearfix marb_25">
+                <a href="#" class="clearfix fl title">
+                    <i class="fl"></i>
+                    <h2 class="fl">PPS奇秀</h2>
+                    <span class="fl">更多</span>
+                </a>
+            </div>
+            <ul class="con_r fl clearfix">
+                <li class="fl first">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <div class="info">
+                            <p>我去上学啦</p>
+                            <span>钟汉良神助攻健将</span>
+                        </div>
+                        <i class="icon2"></i>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="#" class="pic_s">
+                        <img src="img/img.png" />
+                        <div class="info">
+                            <p>我去上学啦</p>
+                            <span>钟汉良神助攻健将</span>
+                        </div>
+                        <i class="icon2"></i>
+                        <span class="icon3">1080P</span>
+                        <span class="icon4">11-09期</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--pindao-->
+    <ul class="w pindao clearfix">
+    	<li class="marr_20 fl">
+        	<a href="#">
+            	<img src="img/img5.jpg" />
+                <div class="pindao_msg">
+                    <p class="info">爱奇艺公益寻亲平台</p>
+                    <div class="more clearfix">
+                    	<h2 class="fl">公益频道</h2>
+                        <span class="fl">更多&gt;</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    	<li class="marr_20 fl">
+        	<a href="#">
+            	<img src="img/img5.jpg" />
+                <div class="pindao_msg">
+                    <p class="info">爱奇艺公益寻亲平台</p>
+                    <div class="more clearfix">
+                    	<h2 class="fl">公益频道</h2>
+                        <span class="fl">更多&gt;</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    	<li class="marr_20 fl">
+        	<a href="#">
+            	<img src="img/img5.jpg" />
+                <div class="pindao_msg">
+                    <p class="info">爱奇艺公益寻亲平台</p>
+                    <div class="more clearfix">
+                    	<h2 class="fl">公益频道</h2>
+                        <span class="fl">更多&gt;</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    	<li class="marr_20 fl">
+        	<a href="#">
+            	<img src="img/img5.jpg" />
+                <div class="pindao_msg">
+                    <p class="info">爱奇艺公益寻亲平台</p>
+                    <div class="more clearfix">
+                    	<h2 class="fl">公益频道</h2>
+                        <span class="fl">更多&gt;</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    	<li class="fl">
+        	<a href="#">
+            	<img src="img/img5.jpg" />
+                <div class="pindao_msg">
+                    <p class="info">爱奇艺公益寻亲平台</p>
+                    <div class="more clearfix">
+                    	<h2 class="fl">公益频道</h2>
+                        <span class="fl">更多&gt;</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <!--banner4-->
+    <a href="#" class="w banner4">
+    	<img src="img/banner3.jpg" />
+        <span>广告</span>
+    </a>
+    <!--合作伙伴-->
+    <div class="w partner clearfix">
+    	<div class="left fl">
+        	<div class="hd clearfix">
+            	<h2 class="fl">合作伙伴</h2>
+                <a href="#" class="fl">更多&gt;</a>
+            </div>
+            <div class="friend clearfix">
+            	<a href="#">万达电影网</a>
+            	<a href="#">华谊兄弟</a>
+            	<a href="#">星美</a>
+            	<a href="#">万达电影网</a>
+            	<a href="#">华谊兄弟</a>
+            	<a href="#">星美</a>
+            	<a href="#">万达电影网</a>
+            	<a href="#">华谊兄弟</a>
+            	<a href="#">星美</a>
+            	<a href="#">万达电影网</a>
+            	<a href="#">华谊兄弟</a>
+            	<a href="#">星美</a>
+            	<a href="#">万达电影网</a>
+            	<a href="#">华谊兄弟</a>
+            	<a href="#">星美</a>
+            	<a href="#">万达电影网</a>
+            </div>
+        </div>
+    	<div class="right fl">
+        	<div class="hd clearfix">
+            	<h2 class="fl">爱奇艺动态</h2>
+                <a href="#" class="fl">更多&gt;</a>
+            </div>
+            <div class="dongtai">
+            	<a href="#" class="fl">《我去上学啦》单集播放破7000万</a>
+            	<a href="#" class="fl">《我去上学啦》单集播放破7000万</a>
+            	<a href="#" class="fl">《我去上学啦》单集播放破7000万</a>
+            	<a href="#" class="fl">《我去上学啦》单集播放破7000万</a>
+            	<a href="#" class="fl">《我去上学啦》单集播放破7000万</a>
+            	<a href="#" class="fl">《我去上学啦》单集播放破7000万</a>
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+    <div class="footer">
+    	<div class="w footer_in">
+        	<div class="link">
+            	<a href="#">公司简介</a>|<a href="#">公司简介</a>|<a href="#">公司简介</a>|<a href="#">公司简介</a>|<a href="#">公司简介</a>|<a href="#">公司简介</a>|<a href="#">公司简介</a>|<a href="#">公司简介</a>|<a href="#">公司简介</a>|<a href="#">公司简介</a>|<a href="#">公司简介</a>|<a href="#">公司简介</a>
+            </div>
+            <div class="cellnumb">
+            	<span>违法和不良信息举报电话：400-800-7171</span><span>举报邮箱：jubao365@qiyi.com</span>
+            </div>
+            <ul class="end clearfix">
+            	<li class="list1 fl">
+                	<a href="#">京网文[2012]0484-158号</a>
+                	<a href="#">京ICP证110636号</a>
+                	<a href="#">出版物经营许可证</a>
+                </li>
+            	<li class="list2 fl">
+                	<a href="#">中国互联网诚信联盟</a>
+                	<a href="#">经营性网站备案信息</a>
+                </li>
+            	<li class="list3 fl">
+                	<a href="#">互联网违法和不良信息举报中心</a>
+                	<a href="#">京公网安备 11010802010263号</a>
+                </li>
+            	<li class="list4 fl">
+                	<a href="#">信息网络传播视听节目许可证 0110544号</a>
+                	<a href="#">增值电信业务经营许可证 B2-20120273</a>
+                </li>
+            	<li class="list5 fl">
+                	<a href="#">广播电视节目制作经营许可证(京)字第1938号</a>
+                	<a href="#">互联网药品信息服务资格证书(京)-经营性-2013-0012</a>
+                </li>
+            </ul>
+            <p class="copyright">Copyright © 2015 爱奇艺 All Rights Reserved</p>
+        </div>
+    </div>
+    
+</body>
+</html>
