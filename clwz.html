@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<!--视口/页面宽度跟设备宽度走,初始缩放比例1,-->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no,email=no">
+<title>无标题文档</title>
+<link type="text/css" rel="stylesheet" href="css/base.css" />
+<style>
+html{ font-size:100px;}
+.wrap{ width:6.4rem;}
+/*header*/
+header{ width:6.4rem; height:0.82rem; background:#f63220; text-align:center; line-height:0.82rem; font-size:0.3rem; color:#fff;}
+header a{ width:0.71rem; height:0.82rem; background:url(image/arrows.png) center no-repeat; background-size:0.13rem;}
+header em{ width:0.31rem; height:0.26rem; background:url(pic/share.png) no-repeat; margin-right:0.2rem; margin-top:0.29rem; background-size:0.31rem;}
+/*内容*/
+.conent{ width:5.81rem; margin-bottom:0.78rem; border-top:#dcdcdc 0.01rem solid; border-bottom:#dcdcdc 0.01rem solid; background:#fff; padding-left:0.29rem; padding-right:0.3rem;}
+.conent h5{ color:#248cce; line-height:0.53rem; font-weight:normal; font-size:0.2rem; border-bottom:0.02rem solid #f2f0f1;}
+.conent p{ text-indent:2em; font-size:0.16rem; color:#5b5b5b; line-height:0.36rem; margin-top:0.2rem;}
+.conent img{ width:4.51rem; margin:0.26rem 0.4rem 0.66rem;}
+</style>
+<script>
+	;(function(win,doc){
+		function change (){
+			doc.documentElement.style.fontSize = 100*doc.documentElement.clientWidth/640+'px';
+		}
+		change();
+		win.addEventListener('resize',change,false);
+	})(window,document);
+</script>
+</head>
+
+<body>
+    <div class="wrap">
+    <!--header-->
+    	<header>
+        	<a href="weizhang.html" target="_self" class="fl"></a>
+        	详情
+            <em class="fr"></em>
+        </header>
+    <!--内容-->
+        <div class="conent">
+        	<h5>如何短时间内完成违章处理</h5>
+            <p>说到交通违章处理，很多车主一定不会陌生，并且不少车主，对于这样的问题
+，烦恼不已。毕竟一旦遇到交通违章，其处理的过程，真的非常麻烦，且工作效率
+也相当差。然而出门在外，开车总会面临这样那样的违章。因此对于广大车主来说
+，定然想选择，更便利快捷的违章处理方式，从而更好地解决问题。
+        交通违章处理，其主要分为现场交通违章处理，以及车辆费现场交通违章处理
+。如果是现场违章，也就是立即需要进行相应的惩罚。且车主，必须在半个月之内
+，解决所有的罚款问题。如果是非现场违规，也就是通过摄像头，发现有违规的现
+象。在处理的时刻，车主不仅需要在交通部门进行漫长的等待，而且需要经过一系
+列的流程处理，从而非常的麻烦。而不少车主，工作非常忙，实在难以抽出身，面
+对这样的问题。对此我们可以让交通违章处理代办，解决这样的问题。
+        说到违章代办机构，也就是帮助车主，进行违章代办的主要机构。其主要优势
+在于，办事的效率非常高，毕竟进行代办的工作人员，业务都较为熟悉，因此在一
+小时左右的时间，就可以进行相应的工作。且不用经过半场的排队。因此办事的整
+体效率，也让人深感满意。即使是异地违章，也可以进行帮助处理。从而对于较忙
+的车主来说，的确是不二的选择。</p>
+				<img src="wzdb/pic.png" />
+        </div>
+    </div>
+</body>
+</html>

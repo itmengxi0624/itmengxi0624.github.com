@@ -1,0 +1,9 @@
+
+*{ margin:0; padding: 0;}
+img{ vertical-align:top; border: none;}
+a{ color: #2f2f2f; text-decoration: none;}
+li{ list-style: none;}
+.clear:after{ content:''; display:block; clear:both;}
+.fl{ float: left;}
+.fr{ float: right;}
+body{ color: #5b5b5b; font-family: '微软雅黑'; background:#f2f0f1;}
