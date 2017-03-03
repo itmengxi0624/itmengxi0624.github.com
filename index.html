@@ -2,13 +2,20 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>李梦熙的个人网站</title>
+<title>Elk's Personal Website</title>
 <link rel="stylesheet" href="base/base.css">
 <link rel="stylesheet" href="style/style.css">
 <link rel="stylesheet" href="css.css">
 <script src="js/jsBank.js"></script>
 <script src="js/move8.js"></script>
 <script>
+;(function(win,doc){
+	function change(){
+		doc.documentElement.style.fontSize = 20*doc.documentElement.clientWidth/320+'px';
+	}
+	change();
+	win.addEventListener('resize',change,false);
+})(window,document);
 window.onload =  function(){
 	//数码时钟
 	;(function(){
@@ -360,7 +367,7 @@ window.onload =  function(){
 <div id="container">
     <div id="spot">
     	
-        <div id="production">
+        <div id="production" class="clearfix">
             <div id="mo">
                 <div id="title">
                     <h3>Elk</h3>
@@ -508,10 +515,10 @@ window.onload =  function(){
                     <h2>//Contact Me</h2>
                     <div class="cent">
                         <div class="cle">
-                            联系电话：18101357950
+                            联系电话：18101357950<br />
                             QQ:737148499<br />
                             Email ：itmengxi@sina.com<br />
-                            住址：北京市朝阳区
+                            住址：北京市朝阳区<br />
             				个人网站：https://itmengxi0624.github.io
                         </div>
                         <div class="cri"><img src="psd/wali.jpg" /></div>
