@@ -11,7 +11,7 @@ html,body{background:url(../psd/1.jpg); height:100%; width:100%; background-size
 .num2 { width: 38px; }
 .demo{ width:240px; margin:8px; height:200px; border:5px solid #2d2823; overflow:hidden; cursor:pointer; position:relative;}
 .demo img{ width:400px;}
-#c1 span,.demo span{ width:100%; height:20%; position:absolute; left:0; bottom:-240px; background:rgba(204,204,204,0.5); text-align:center; line-height:40px; color:#fff; transition:.5s all ease;}
+#c1 span,.demo span{ width:100%; height:20%; position:absolute; left:0; bottom:-240px; background:rgba(0,0,0,0.7); text-align:center; line-height:40px; color:#fff; transition:.5s all ease;}
 .demo:hover span{ bottom:0;}
 #c1:hover span{ bottom:0;}
 #c1{ width:95%; height:95%; padding:2% 5%; cursor:pointer; position:relative; overflow:hidden;}
