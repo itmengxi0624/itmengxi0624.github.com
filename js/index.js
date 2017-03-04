@@ -341,4 +341,4 @@ window.onload =  function(){
 			window.open('fish_game/demo.html','_blank');
 		},false);
 	})();
-};
+}; 
