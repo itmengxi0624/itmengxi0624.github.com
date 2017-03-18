@@ -1,4 +1,4 @@
-window.onload =  function(){
+
 	//数码时钟
 	;(function(){
 		function time(){ 
@@ -341,4 +341,3 @@ window.onload =  function(){
 			window.open('fish_game/demo.html','_blank');
 		},false);
 	})();
-}; 
