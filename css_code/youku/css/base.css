@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+/*清空*/
+h1,h2,h3,h4,h5,h6,body,p,ul,ol,dl,dd,input,textarea{ margin:0; padding:0;}
+img{ vertical-align:top; border:none;}
+a{ text-decoration:none; color:#555; display:block;}
+li{ list-style:none;}
+input,textarea{outline:none; border:none;}
+textarea{ resize:none;}
+
+/*重用*/
+body{ font:12px 'microsoft yahei';}
+.fl{ float:left;}
+.fr{ float:right;}
+.clearfix:after{ content:''; display:block; clear:both;}
+.w{ width:970px; margin:0 auto;}
+.marr_20{ margin-right:20px;}
+.marr_5{ margin-right:5px;}
+.marr_10{ margin-right:10px;}
+.marb_20{ margin-bottom:20px;}
+.marb_10{ margin-bottom:10px;}
+.marb_50{ margin-bottom:50px;}
